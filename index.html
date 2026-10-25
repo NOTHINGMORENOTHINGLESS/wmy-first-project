@@ -257,7 +257,7 @@
 
       .momentum-header {
         display: flex;
-        items-align: center;
+        align-items: center;
         justify-content: space-between;
         margin-bottom: 12px;
         color: var(--muted);
@@ -424,6 +424,7 @@
           <label for="mode" class="mini-label" style="margin:0;">Mode</label>
           <select id="mode" aria-label="Narrative mode">
             <option value="casual">Casual</option>
+            <option value="casual-spanish">Casual (Spanish)</option>
             <option value="analyst">Analyst</option>
           </select>
         </div>
@@ -605,7 +606,7 @@
       };
 
       const analystNotes = {
-        pace_mismatch: "Evidence: repeated carries into the same channel, faster winger vs slower full-back, and multiple recoveries after the defender's first step. This pattern drives direct entries and sustains threat in a single corridor.",
+        pace_mismatch: "Evidence: repeated carries into the same channel, faster winger vs slower full-back, and multiple recoveries after the defender's first step. This pattern drives direct entries and sustained threat in a single corridor.",
         zone_shift: "Evidence: possession builds on one side, then a rapid switch to the opposite flank. The change in geometry forces the opposing back line to re-form, opening half-space lanes and second-ball windows.",
         one_two: "Evidence: compact support play, timed pass-return, and a forward breaking behind the press. The sequence shortens the threat window while creating a passing angle into the box."
       };
@@ -631,27 +632,48 @@
         });
       }
 
-      function buildNarrative(data, mode) {
+      function getCasualNarrativeText(data) {
         const template = casualTemplates[data.pattern][data.narrativeKey % casualTemplates[data.pattern].length];
-
-        const filled = template
+        return template
           .replace('[winger]', 'Adebayo')
           .replace('[fullback]', 'Lewis')
           .replace('[zone]', 'R2')
           .replace('[playerA]', 'Niko')
           .replace('[playerB]', 'Bale')
           .replace('[zone]', 'C2');
-
-        if (mode === 'analyst') {
-          const analystText = `${data.patternLabel}: ${analystNotes[data.pattern]}`;
-          narrativeText.innerHTML = `<strong>${data.patternLabel}</strong> — ${analystText}`;
-          return;
-        }
-
-        narrativeText.innerHTML = filled;
       }
 
-      function setMinute(minuteIndex) {
+      async function fetchSpanishNarrative(englishText) {
+        try {
+          const response = await fetch('http://localhost:8000/translate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: englishText })
+          });
+
+          if (!response.ok) {
+            throw new Error('HTTP error');
+          }
+
+          const data = await response.json();
+          if (!data || data.translation_unavailable) {
+            return { text: englishText, unavailable: true };
+          }
+
+          return { text: data.translatedText || englishText, unavailable: false };
+        } catch (error) {
+          return { text: englishText, unavailable: true };
+        }
+      }
+
+      function renderNarrativeList(current) {
+        eventList.innerHTML = [
+          `<strong>${current.representative}</strong> — ${current.mainEvent}`,
+          ...current.events.map((item) => item)
+        ].map((item) => `<li>${item}</li>`).join('');
+      }
+
+      async function setMinute(minuteIndex) {
         const current = minutes[minuteIndex];
         const mode = modeSelect.value;
 
@@ -660,27 +682,22 @@
 
         if (mode === 'analyst') {
           narrativeText.innerHTML = `<strong>${current.patternLabel}</strong> — ${analystNotes[current.pattern]}`;
-          const list = [
-            `<strong>${current.representative}</strong> — ${current.mainEvent}`,
-            ...current.events.map((item) => item)
-          ];
-          eventList.innerHTML = list.map((item) => `<li>${item}</li>`).join('');
+          renderNarrativeList(current);
           analysisText.textContent = `${current.mainEvent} Direct evidence: ${current.events.join(' ')}`;
+        } else if (mode === 'casual-spanish') {
+          const englishText = getCasualNarrativeText(current);
+          const translation = await fetchSpanishNarrative(englishText);
+          narrativeText.innerHTML = translation.unavailable
+            ? `Translation unavailable: ${englishText}`
+            : translation.text;
+          renderNarrativeList(current);
+          analysisText.textContent = translation.unavailable
+            ? 'Translation unavailable'
+            : 'Spanish translation loaded';
         } else {
-          const template = casualTemplates[current.pattern][current.narrativeKey % casualTemplates[current.pattern].length];
-          const filled = template
-            .replace('[winger]', 'Adebayo')
-            .replace('[fullback]', 'Lewis')
-            .replace('[zone]', 'R2')
-            .replace('[playerA]', 'Niko')
-            .replace('[playerB]', 'Bale')
-            .replace('[zone]', 'C2');
-
-          narrativeText.innerHTML = filled;
-          eventList.innerHTML = [
-            `<strong>${current.representative}</strong> — ${current.mainEvent}`,
-            ...current.events.map((item) => item)
-          ].map((item) => `<li>${item}</li>`).join('');
+          const englishText = getCasualNarrativeText(current);
+          narrativeText.innerHTML = englishText;
+          renderNarrativeList(current);
           analysisText.textContent = `Data-backed sequence: ${current.mainEvent} ${current.events[0]} ${current.events[1]}`;
         }
 
