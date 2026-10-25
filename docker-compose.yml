@@ -1,0 +1,17 @@
+services:
+  football-insights:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: football-insights-demo
+    ports:
+      - "8501:8501"
+    environment:
+      - DATASET_PATH=${DATASET_PATH:-data/international_results.csv}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT:-}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY:-}
+      - AZURE_OPENAI_DEPLOYMENT=${AZURE_OPENAI_DEPLOYMENT:-}
+      - AZURE_OPENAI_API_VERSION=${AZURE_OPENAI_API_VERSION:-}
+    volumes:
+      - .:/app
+    command: streamlit run app/app.py --server.address 0.0.0.0 --server.port 8501
