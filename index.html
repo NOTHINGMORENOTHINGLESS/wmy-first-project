@@ -39,6 +39,40 @@
         padding: 28px 18px 40px;
       }
 
+      .hero {
+        margin-bottom: 24px;
+        padding: 32px 24px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background:
+          radial-gradient(circle at 50% 0, rgba(115, 213, 255, 0.14), transparent 60%),
+          rgba(7, 22, 28, 0.92);
+        text-align: center;
+      }
+
+      .hero h1 {
+        margin: 0;
+        color: var(--text);
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-slogan {
+        margin: 8px 0 0;
+        color: var(--cyan);
+        font-size: clamp(1rem, 2.4vw, 1.35rem);
+        font-weight: 600;
+      }
+
+      .hero-description {
+        max-width: 900px;
+        margin: 12px auto 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
       .header {
         display: flex;
         align-items: center;
@@ -100,6 +134,59 @@
         border: 1px solid var(--line);
         border-radius: 20px;
         box-shadow: 0 20px 70px var(--shadow);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hero,
+      .pitch-wrap,
+      .momentum-box,
+      .narrative-box,
+      .analysis-box,
+      .mode-select,
+      .summary-button,
+      .player-focus select,
+      .play-by-play {
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      .panel:hover,
+      .hero:hover,
+      .pitch-wrap:hover,
+      .momentum-box:hover,
+      .narrative-box:hover,
+      .analysis-box:hover {
+        border-color: rgba(138, 228, 209, 0.58);
+        box-shadow:
+          0 0 0 1px rgba(138, 228, 209, 0.14),
+          0 0 20px rgba(115, 213, 255, 0.12),
+          0 20px 70px var(--shadow);
+      }
+
+      .mode-select:hover,
+      .player-focus select:hover,
+      .play-by-play:hover {
+        border-color: rgba(138, 228, 209, 0.65);
+        box-shadow: 0 0 12px rgba(115, 213, 255, 0.14);
+      }
+
+      .summary-button:hover,
+      .summary-button:focus-visible {
+        border-color: rgba(138, 228, 209, 0.8);
+        box-shadow:
+          0 0 0 1px rgba(138, 228, 209, 0.22),
+          0 0 14px rgba(115, 213, 255, 0.2);
+      }
+
+      .panel:focus-within,
+      .hero:focus-within,
+      .pitch-wrap:focus-within,
+      .momentum-box:focus-within,
+      .narrative-box:focus-within,
+      .analysis-box:focus-within {
+        border-color: rgba(138, 228, 209, 0.58);
       }
 
       .layout {
@@ -107,6 +194,40 @@
         grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr) minmax(360px, 0.95fr);
         gap: 18px;
         align-items: stretch;
+      }
+
+      .player-focus-panel,
+      .explainability-panel,
+      .live-event-feed {
+        grid-column: 1 / -1;
+      }
+
+      .narrative-panel,
+      .player-focus-panel,
+      .explainability-panel {
+        background: rgba(5, 18, 24, 0.96);
+      }
+
+      .player-focus-panel {
+        padding: 16px 20px;
+      }
+
+      .player-focus-panel .panel-header {
+        justify-content: flex-start;
+        margin-bottom: 12px;
+      }
+
+      .player-focus {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: var(--muted);
+      }
+
+      .player-focus select {
+        flex: 0 1 260px;
       }
 
       .pitch-panel {
@@ -136,8 +257,18 @@
         background-size: auto, 33.333% 100%, 100% 33.333%, auto;
       }
 
+      .pitch-markings {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
       .zone {
         position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -177,6 +308,18 @@
         box-shadow: inset 0 0 0 2px rgba(138, 228, 209, 0.7);
         border-color: rgba(138, 228, 209, 0.7);
         background: rgba(138, 228, 209, 0.08);
+      }
+
+      .zone.active.team-a {
+        box-shadow: inset 0 0 0 2px rgba(255, 88, 88, 0.82);
+        border-color: rgba(255, 88, 88, 0.82);
+        background: rgba(255, 88, 88, 0.16);
+      }
+
+      .zone.active.team-b {
+        box-shadow: inset 0 0 0 2px rgba(86, 165, 255, 0.86);
+        border-color: rgba(86, 165, 255, 0.86);
+        background: rgba(86, 165, 255, 0.17);
       }
 
       .pitch-footer {
@@ -248,6 +391,11 @@
         font-size: 0.95rem;
       }
 
+      select option {
+        background-color: #0e242b;
+        color: var(--text);
+      }
+
       .momentum-box {
         background: rgba(7, 22, 28, 0.9);
         border: 1px solid var(--line);
@@ -267,6 +415,7 @@
       }
 
       .momentum-chart {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 8px;
@@ -275,12 +424,83 @@
         padding: 4px 2px 0;
       }
 
+      .momentum-playhead {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #ffe66d;
+        border-radius: 999px;
+        box-shadow: 0 0 8px rgba(255, 230, 109, 0.9);
+        pointer-events: none;
+        transform: translateX(-50%);
+        transition: left 0.2s ease;
+      }
+
+      .momentum-playhead[hidden] {
+        display: none;
+      }
+
+      .momentum-playhead::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffe66d;
+        box-shadow: 0 0 8px rgba(255, 230, 109, 0.9);
+        transform: translate(-50%, -35%);
+      }
+
+      .momentum-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+        color: var(--muted);
+        font-size: 0.68rem;
+      }
+
+      .momentum-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .momentum-legend-swatch {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .momentum-legend-swatch.team-a { background: #ff5858; }
+      .momentum-legend-swatch.team-b { background: #56a5ff; }
+
+      .momentum-window {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 4px;
+        height: 100%;
+        min-width: 0;
+      }
+
+      .momentum-window[hidden] {
+        display: none;
+      }
+
       .candle {
         position: relative;
         display: flex;
         align-items: end;
         justify-content: center;
-        min-height: 30px;
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
         border-radius: 10px 10px 6px 6px;
         border: 1px solid rgba(255,255,255,0.08);
         cursor: pointer;
@@ -292,10 +512,11 @@
         content: "";
         position: absolute;
         width: 6px;
-        min-height: 26px;
-        top: 12px;
+        height: 30%;
+        max-height: 10px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         border-radius: 999px;
         background: rgba(255,255,255,0.9);
         box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
@@ -308,9 +529,8 @@
         box-shadow: 0 12px 26px rgba(0,0,0,0.18);
       }
 
-      .candle.positive { background: linear-gradient(180deg, rgba(154, 230, 180, 0.9), rgba(154, 230, 180, 0.22)); }
-      .candle.negative { background: linear-gradient(180deg, rgba(255, 125, 125, 0.82), rgba(255, 125, 125, 0.18)); }
-      .candle.neutral { background: linear-gradient(180deg, rgba(115, 213, 255, 0.78), rgba(115, 213, 255, 0.18)); }
+      .candle.team-a { background: linear-gradient(180deg, rgba(255, 88, 88, 0.9), rgba(255, 88, 88, 0.22)); }
+      .candle.team-b { background: linear-gradient(180deg, rgba(86, 165, 255, 0.9), rgba(86, 165, 255, 0.22)); }
 
       .minute-label {
         position: absolute;
@@ -329,6 +549,104 @@
         padding: 16px;
       }
 
+      .summary-button {
+        margin-bottom: 12px;
+        padding: 7px 10px;
+        border: 1px solid rgba(138, 228, 209, 0.35);
+        border-radius: 8px;
+        background: rgba(138, 228, 209, 0.10);
+        color: var(--cyan);
+        font: inherit;
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+
+      .summary-button:hover {
+        background: rgba(138, 228, 209, 0.18);
+      }
+
+      .playback-controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .playback-controls .summary-button {
+        margin-bottom: 0;
+        font-weight: 800;
+      }
+
+      .playback-status {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .playback-clock {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .playback-clock strong {
+        color: var(--text);
+        font-size: 0.9rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .player-focus {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
+      }
+
+      .player-focus label {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .player-focus select {
+        flex: 0 1 260px;
+        min-width: 0;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(14, 36, 43, 0.9);
+        color: var(--text);
+      }
+
+      .player-focus-team {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        min-width: 0;
+        flex: 0 1 auto;
+        font-size: 0.68rem;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .player-focus-team-swatch {
+        width: 9px;
+        height: 9px;
+        flex: 0 0 9px;
+        border-radius: 50%;
+      }
+
+      .player-focus-team-swatch.team-a {
+        background: #ff5858;
+      }
+
+      .player-focus-team-swatch.team-b {
+        background: #56a5ff;
+      }
+
       .event-tag {
         display: inline-flex;
         align-items: center;
@@ -343,13 +661,69 @@
         margin-bottom: 12px;
       }
 
+      .event-tag[hidden] {
+        display: none;
+      }
+
       .narrative-text {
         margin: 0;
         line-height: 1.65;
         font-size: 1rem;
       }
 
+      .player-identification {
+        margin: 8px 0 0;
+        color: var(--cyan);
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.6;
+        white-space: pre-line;
+      }
+
       .narrative-text strong { color: var(--cyan); }
+
+      .live-event-feed {
+        grid-column: 3;
+        align-self: start;
+        margin-top: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(10, 25, 32, 0.72);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .live-event-feed:hover {
+        border-color: rgba(138, 228, 209, 0.58);
+        box-shadow: 0 0 14px rgba(115, 213, 255, 0.12);
+      }
+
+      .live-event-feed h3 {
+        margin: 0 0 8px;
+        color: var(--cyan);
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .live-event-feed-log {
+        display: grid;
+        gap: 5px;
+        max-height: 132px;
+        overflow: auto;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-size: 0.72rem;
+      }
+
+      .live-event-feed-log:empty::after {
+        content: "Waiting for playback...";
+        opacity: 0.75;
+      }
+
+      .live-event-feed-line {
+        white-space: nowrap;
+      }
 
       .event-list {
         list-style: none;
@@ -357,6 +731,80 @@
         padding: 0;
         display: grid;
         gap: 8px;
+      }
+
+      .play-by-play {
+        margin-top: 14px;
+        border: 1px solid rgba(138, 228, 209, 0.35);
+        border-radius: 8px;
+        background: rgba(138, 228, 209, 0.10);
+        overflow: hidden;
+      }
+
+      .play-by-play:not([open]) > .play-by-play-content {
+        display: grid;
+      }
+
+      .play-by-play summary {
+        padding: 7px 10px;
+        color: var(--cyan);
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-weight: 700;
+        list-style: none;
+      }
+
+      .play-by-play-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.28s ease;
+      }
+
+      .play-by-play[open] .play-by-play-content {
+        grid-template-rows: 1fr;
+      }
+
+      .play-by-play.is-closing .play-by-play-content {
+        grid-template-rows: 0fr;
+      }
+
+      .play-by-play-content-inner {
+        min-height: 0;
+        overflow: hidden;
+        padding: 0 10px;
+        transition: padding-bottom 0.28s ease;
+      }
+
+      .play-by-play[open] .play-by-play-content-inner {
+        padding-bottom: 10px;
+      }
+
+      .play-by-play-content .event-list {
+        margin-top: 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .play-by-play-content,
+        .play-by-play-content-inner {
+          transition: none;
+        }
+      }
+
+      .play-by-play summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .play-by-play summary::after {
+        content: "+";
+        float: right;
+      }
+
+      .play-by-play[open] summary::after {
+        content: "\2212";
+      }
+
+      .play-by-play summary:hover {
+        background: rgba(138, 228, 209, 0.08);
       }
 
       .event-list li {
@@ -371,11 +819,11 @@
       .event-list strong { color: var(--text); }
 
       .analysis-box {
-        margin-top: 16px;
-        padding: 12px 14px;
-        border-radius: 12px;
-        background: rgba(19, 48, 56, 0.72);
-        border: 1px solid var(--line);
+        padding: 16px 20px;
+      }
+
+      .analysis-box h3 {
+        text-align: left;
       }
 
       .analysis-box h3 {
@@ -384,6 +832,12 @@
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: var(--muted);
+      }
+
+      .analysis-box h4 {
+        margin: 0 0 8px;
+        color: var(--text);
+        font-size: 0.95rem;
       }
 
       .analysis-box p {
@@ -396,11 +850,20 @@
         .layout {
           grid-template-columns: 1fr;
         }
+
+        .live-event-feed {
+          grid-column: 1 / -1;
+        }
       }
     </style>
   </head>
   <body>
     <div class="page">
+      <section class="hero" aria-labelledby="product-name">
+        <h1 id="product-name">MatchLens</h1>
+        <p class="hero-slogan">Every moment has a why. We explain it.</p>
+        <p class="hero-description">Real-time tactical causality engine for broadcast and streaming — turning synthetic football events into explainable match intelligence.</p>
+      </section>
       <header class="header">
         <div class="team-strip">
           <div class="team-pill">
@@ -433,7 +896,20 @@
       <main class="layout">
         <section class="panel pitch-panel">
           <div class="pitch-wrap">
-            <div class="pitch" id="pitch"></div>
+            <div class="pitch" id="pitch">
+              <svg class="pitch-markings" viewBox="0 0 300 200" aria-hidden="true">
+                <g fill="none" stroke="rgba(236, 249, 248, 0.62)" stroke-width="1.5">
+                  <rect x="2" y="2" width="296" height="196" />
+                  <path d="M150 2 V198" />
+                  <circle cx="150" cy="100" r="25" />
+                  <rect x="2" y="44" width="48" height="112" />
+                  <rect x="250" y="44" width="48" height="112" />
+                  <rect x="2" y="74" width="18" height="52" />
+                  <rect x="280" y="74" width="18" height="52" />
+                  <path d="M0 12 Q12 12 12 0 M288 0 Q288 12 300 12 M0 188 Q12 188 12 200 M288 200 Q288 188 300 188" />
+                </g>
+              </svg>
+            </div>
             <div class="pitch-footer">
               <span>Pitch map</span>
               <div class="legend">
@@ -456,6 +932,20 @@
               <span id="minute-range">61'–65'</span>
             </div>
             <div class="momentum-chart" id="chart"></div>
+            <div class="momentum-legend" aria-label="Candle color key">
+              <span class="momentum-legend-item"><span class="momentum-legend-swatch team-a"></span>Harbor FC</span>
+              <span class="momentum-legend-item"><span class="momentum-legend-swatch team-b"></span>Fenside United</span>
+            </div>
+            <div class="playback-clock">
+              <span>Match clock</span>
+              <strong id="playback-clock" aria-live="polite">--:--</strong>
+            </div>
+            <div class="playback-controls">
+              <button class="summary-button" id="play-match-button" type="button">Play Match</button>
+              <button class="summary-button" id="pause-match-button" type="button" disabled>Pause</button>
+              <button class="summary-button" id="rewind-match-button" type="button">Rewind</button>
+              <span class="playback-status" id="playback-status" aria-live="polite"></span>
+            </div>
           </div>
         </section>
 
@@ -466,16 +956,48 @@
           </div>
 
           <div class="narrative-box">
+            <button class="summary-button" id="match-summary-button" type="button">MATCH SUMMARY</button>
+            <br />
             <div class="event-tag" id="event-tag">Pace mismatch</div>
             <p class="narrative-text" id="narrative-text"></p>
-            <ul class="event-list" id="event-list"></ul>
-          </div>
-
-          <div class="analysis-box">
-            <h3>Explainability</h3>
-            <p id="analysis-text"></p>
           </div>
         </aside>
+
+        <section class="panel player-focus-panel" aria-labelledby="player-focus-heading">
+          <div class="panel-header">
+            <h2 id="player-focus-heading">Player Focus</h2>
+          </div>
+          <div class="player-focus">
+            <label for="player-focus-select" class="mini-label">Player</label>
+            <select id="player-focus-select" aria-label="Player Focus">
+              <option value="all">All Players</option>
+            </select>
+            <span class="player-focus-team" id="player-focus-team" aria-live="polite" hidden>
+              <span class="player-focus-team-swatch" id="player-focus-team-swatch" aria-hidden="true"></span>
+              <span id="player-focus-team-name"></span>
+            </span>
+            <p class="player-identification" id="player-identification" aria-live="polite"></p>
+          </div>
+          <details class="play-by-play" id="play-by-play">
+            <summary>Play-by-Play</summary>
+            <div class="play-by-play-content">
+              <div class="play-by-play-content-inner">
+                <ul class="event-list" id="event-list"></ul>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel analysis-box explainability-panel" aria-labelledby="explainability-heading">
+          <h3 id="explainability-heading">EXPLAINABILITY</h3>
+          <h4>Why this moment mattered.</h4>
+          <p id="analysis-text"></p>
+        </section>
+
+        <section class="panel live-event-feed" aria-labelledby="live-event-feed-title">
+          <h3 id="live-event-feed-title">Live Event Feed</h3>
+          <div class="live-event-feed-log" id="live-event-feed-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+        </section>
       </main>
     </div>
 
@@ -504,88 +1026,125 @@
         pitch.appendChild(el);
       });
 
-      const minutes = [
-        {
-          minute: 61,
-          pattern: 'pace_mismatch',
-          patternLabel: 'Pace mismatch',
-          xg: 0.34,
-          momentum: 68,
-          narrativeKey: 0,
-          representative: "61' through ball, xG 0.34",
-          mainEvent: "Adebayo attacks the right channel and beats Lewis to the byline.",
-          events: [
-            "Adebayo receives in R2 and turns on the outside before the full-back can recover.",
-            "Short pass into the half-space, then a vertical carry toward the box edge.",
-            "Lewis is dragged wide and isolated against a faster winger."
-          ],
-          zones: ['Z1', 'Z2', 'Z4']
-        },
-        {
-          minute: 62,
-          pattern: 'zone_shift',
-          patternLabel: 'Zone shift',
-          xg: 0.28,
-          momentum: 76,
-          narrativeKey: 1,
-          representative: "62' switch of play, xG 0.28",
-          mainEvent: "Harbor switch focus from the right to the left side after a slow Fenside press.",
-          events: [
-            "The build-up pivots from the right flank to the left half-space.",
-            "The midfield three open a passing lane into L2 and L3.",
-            "The defender's body shape changes after the ball moves away from the original right-side overload."
-          ],
-          zones: ['Z7', 'Z8', 'Z9']
-        },
-        {
-          minute: 63,
-          pattern: 'one_two',
-          patternLabel: 'One-two',
-          xg: 0.41,
-          momentum: 84,
-          narrativeKey: 2,
-          representative: "63' one-two, xG 0.41",
-          mainEvent: "Niko and Bale combine in the central lane before the striker breaks behind the line.",
-          events: [
-            "Bale drops short to receive the first pass at C2.",
-            "Niko checks away, then plays the return pass on the half-turn.",
-            "The sequence creates a lane into the box and forces the center-back to step."
-          ],
-          zones: ['Z5', 'Z6', 'Z8']
-        },
-        {
-          minute: 64,
-          pattern: 'pace_mismatch',
-          patternLabel: 'Pace mismatch',
-          xg: 0.39,
-          momentum: 88,
-          narrativeKey: 0,
-          representative: "64' burst behind the back line, xG 0.39",
-          mainEvent: "Adebayo again isolates the slower full-back and wins the race into the box.",
-          events: [
-            "Right-wide carry causes the defending full-back to retreat before the ball arrives.",
-            "The winger stays behind the defender and threatens the channel again.",
-            "Pressure remains on the outside because the center-back cannot recover in time."
-          ],
-          zones: ['Z2', 'Z3', 'Z4']
-        },
-        {
-          minute: 65,
-          pattern: 'zone_shift',
-          patternLabel: 'Zone shift',
-          xg: 0.36,
-          momentum: 79,
-          narrativeKey: 1,
-          representative: "65' left-side switch, xG 0.36",
-          mainEvent: "The attack shifts from the right to the left side and finds space behind the shoulder of the left-back.",
-          events: [
-            "The pass is moved quickly from the right to the left half-space.",
-            "The shape changes as the full-back steps into a higher line and the winger attacks the back shoulder.",
-            "This second-phase pattern creates the cleanest chance of the sequence."
-          ],
-          zones: ['Z7', 'Z8', 'Z9']
+      let matchData = null;
+      let minutes = [];
+      let selectedPlayerId = 'all';
+
+      async function loadMatch() {
+        try {
+          const response = await fetch('./match.json');
+          if (!response.ok) {
+            throw new Error(`Failed to load match.json: ${response.status}`);
+          }
+
+          matchData = await response.json();
+
+          const windows = matchData.pattern_windows || [];
+          const events = matchData.events || [];
+          const teams = matchData.teams || [];
+          const teamClassById = new Map(teams.map((team, index) => [
+            team.team_id,
+            index === 0 ? 'team-a' : 'team-b'
+          ]));
+          const playerInfo = new Map((matchData.players || []).map((player) => [
+            player.player_id,
+            player.team_id
+          ]));
+          events.forEach((event) => {
+            if (event.player_id && !playerInfo.has(event.player_id)) {
+              playerInfo.set(event.player_id, event.team_id);
+            }
+          });
+          minutes = windows.map((window) => {
+            const minuteEvents = events.filter((event) => {
+              return Math.abs(event.minute - window.minute) <= 1;
+            });
+            const teamMomentum = teams.map((team) => {
+              const teamEvents = minuteEvents.filter((event) => event.team_id === team.team_id);
+              const teamWindow = windows.find((candidate) => {
+                return candidate.minute === window.minute && candidate.team_id === team.team_id;
+              });
+              const shots = teamEvents.filter((event) => event.type === 'shot');
+              const xg = Number(teamWindow?.xg) || 0;
+              const corners = teamEvents.filter((event) => event.type === 'corner').length;
+
+              return {
+                teamId: team.team_id,
+                teamName: team.name,
+                momentum: (shots.length * 3) + (xg * 10) + (corners * 2) + (teamEvents.length * 0.1)
+              };
+            });
+
+            const primaryEvent = minuteEvents.find((event) => {
+              return ['pass', 'pressure', 'shot', 'tackle'].includes(event.type);
+            }) || minuteEvents[0] || {
+              player_id: null,
+              type: 'pass',
+              outcome: 'complete'
+            };
+
+            const narrativeEvents = minuteEvents.length
+              ? minuteEvents.map((event) => {
+                  return `${event.type.charAt(0).toUpperCase() + event.type.slice(1)} by ${event.player_id} (${event.outcome}).`;
+                })
+              : [`${window.patternLabel} sequence.`];
+
+            return {
+              minute: window.minute,
+              pattern: window.pattern,
+              patternLabel: window.patternLabel,
+              xg: window.xg ?? 0.0,
+              teamMomentum,
+              narrativeKey: window.narrativeKey ?? 0,
+              representative: `${window.minute}' ${window.patternLabel.toLowerCase()}, xG ${window.xg}`,
+              mainEvent: `${primaryEvent.player_id || 'N/A'} ${primaryEvent.type} ${primaryEvent.outcome === 'complete' ? 'into the channel' : 'with pressure'} at ${window.minute}'.`,
+              events: narrativeEvents,
+              triggeringEvents: minuteEvents,
+              zones: window.zones || ['Z1', 'Z2', 'Z4'],
+              primaryEvent
+            };
+          });
+
+          const playerIds = [...new Set(
+            minutes.flatMap((minute) => minute.triggeringEvents)
+              .map((event) => event.player_id)
+              .filter(Boolean)
+          )].sort();
+          playerIds.forEach((playerId) => {
+            const option = document.createElement('option');
+            option.value = playerId;
+            const teamId = playerInfo.get(playerId)
+              || events.find((event) => event.player_id === playerId)?.team_id;
+            const teamName = teams.find((team) => team.team_id === teamId)?.name;
+            option.textContent = teamName ? `${playerId} (${teamName})` : playerId;
+            option.dataset.teamClass = teamClassById.get(teamId) || '';
+            option.dataset.teamName = teamName || 'Team unavailable';
+            playerFocusSelect.appendChild(option);
+          });
+
+          renderChart();
+          preparePlaybackEvents();
+          setMinute(0);
+        } catch (error) {
+          console.error(error);
+          minutes = [
+            {
+              minute: 61,
+              pattern: 'pace_mismatch',
+              patternLabel: 'Pace mismatch',
+              xg: 0.34,
+              momentum: 68,
+              narrativeKey: 0,
+              representative: "61' through ball, xG 0.34",
+              mainEvent: "Player_01 pass into the channel at 61'.",
+              events: ["Pass by Player_01 (complete).", "Pressure sequence after the pass."],
+              zones: ['Z1', 'Z2', 'Z4']
+            }
+          ];
+          document.getElementById('chart').innerHTML = '';
+          setMinute(0);
         }
-      ];
+      }
 
       const casualTemplates = {
         pace_mismatch: [
@@ -615,20 +1174,94 @@
       const narrativeText = document.getElementById('narrative-text');
       const eventList = document.getElementById('event-list');
       const eventTag = document.getElementById('event-tag');
+      const matchSummaryButton = document.getElementById('match-summary-button');
+      const playMatchButton = document.getElementById('play-match-button');
+      const pauseMatchButton = document.getElementById('pause-match-button');
+      const rewindMatchButton = document.getElementById('rewind-match-button');
+      const playbackStatus = document.getElementById('playback-status');
+      const playbackClock = document.getElementById('playback-clock');
+      const liveEventFeedLog = document.getElementById('live-event-feed-log');
+      const playerFocusSelect = document.getElementById('player-focus-select');
+      const playerFocusTeamSwatch = document.getElementById('player-focus-team-swatch');
+      const playerFocusTeamName = document.getElementById('player-focus-team-name');
+      const playByPlay = document.getElementById('play-by-play');
+      const playerIdentification = document.getElementById('player-identification');
       const analysisText = document.getElementById('analysis-text');
+      const analysisBox = document.querySelector('.analysis-box');
       const clock = document.getElementById('clock');
+      let showingMatchSummary = false;
+      let narrativeRenderVersion = 0;
+      let playbackEvents = [];
+      let playbackIndex = 0;
+      let playbackTimer = null;
+      let playbackActive = false;
+      let playbackRun = 0;
 
       const pitchZones = document.querySelectorAll('.zone');
+      let playByPlayCloseTimer = null;
+      let playByPlayTransitionEnd = null;
 
-      function clearHighlights() {
-        pitchZones.forEach(zone => zone.classList.remove('active'));
+      function setPlayByPlayOpen(isOpen, animate = true) {
+        if (playByPlayCloseTimer !== null) {
+          clearTimeout(playByPlayCloseTimer);
+          playByPlayCloseTimer = null;
+        }
+
+        const content = playByPlay.querySelector('.play-by-play-content');
+        if (playByPlayTransitionEnd !== null) {
+          content.removeEventListener('transitionend', playByPlayTransitionEnd);
+          playByPlayTransitionEnd = null;
+        }
+        playByPlay.classList.remove('is-closing');
+        if (isOpen) {
+          playByPlay.open = true;
+          return;
+        }
+        if (!playByPlay.open) {
+          return;
+        }
+        if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          playByPlay.open = false;
+          return;
+        }
+
+        playByPlay.classList.add('is-closing');
+        const finishClose = (event) => {
+          if (event && (event.target !== content || event.propertyName !== 'grid-template-rows')) {
+            return;
+          }
+          content.removeEventListener('transitionend', finishClose);
+          if (playByPlayCloseTimer !== null) {
+            clearTimeout(playByPlayCloseTimer);
+            playByPlayCloseTimer = null;
+          }
+          playByPlay.open = false;
+          playByPlay.classList.remove('is-closing');
+          playByPlayTransitionEnd = null;
+        };
+        playByPlayTransitionEnd = finishClose;
+        content.addEventListener('transitionend', playByPlayTransitionEnd);
+        playByPlayCloseTimer = setTimeout(() => finishClose(), 400);
       }
 
-      function highlightZones(zoneIds) {
+      playByPlay.querySelector('summary').addEventListener('click', (event) => {
+        event.preventDefault();
+        setPlayByPlayOpen(!playByPlay.open || playByPlay.classList.contains('is-closing'));
+      });
+
+      function clearHighlights() {
+        pitchZones.forEach((zone) => {
+          zone.classList.remove('active', 'team-a', 'team-b');
+        });
+      }
+
+      function highlightZones(zoneIds, teamClass = 'team-a') {
         clearHighlights();
         zoneIds.forEach((id) => {
           const target = document.querySelector(`.zone[data-zone="${id}"]`);
-          if (target) target.classList.add('active');
+          if (target) {
+            target.classList.add('active', teamClass);
+          }
         });
       }
 
@@ -667,75 +1300,544 @@
       }
 
       function renderNarrativeList(current) {
-        eventList.innerHTML = [
-          `<strong>${current.representative}</strong> — ${current.mainEvent}`,
-          ...current.events.map((item) => item)
-        ].map((item) => `<li>${item}</li>`).join('');
+        const events = current.triggeringEvents || [];
+        const filteredEvents = (selectedPlayerId && selectedPlayerId !== 'all')
+          ? events.filter((event) => event.player_id === selectedPlayerId)
+          : events;
+        const teamNames = new Map((matchData?.teams || []).map((team) => [
+          team.team_id,
+          team.name
+        ]));
+        const commentary = filteredEvents.map((event) => {
+          const minute = event.minute ?? current.minute;
+          const player = event.player_id || 'A player';
+          let sentence;
+
+          switch (event.type) {
+            case 'pass':
+              sentence = `${player} finds a teammate with a pass.`;
+              break;
+            case 'shot':
+              sentence = `${player} gets a shot away.`;
+              break;
+            case 'pressure':
+              sentence = `${player} wins the ball with a pressure.`;
+              break;
+            case 'tackle':
+              sentence = `${player} wins it with a tackle.`;
+              break;
+            case 'possession_change': {
+              const teamName = teamNames.get(event.team_id);
+              sentence = teamName
+                ? `The ball changes hands. ${teamName} has it.`
+                : 'The ball changes hands.';
+              break;
+            }
+            default: {
+              const eventName = String(event.type || 'play')
+                .replaceAll('_', ' ')
+                .replace(/^./, (character) => character.toLowerCase());
+              sentence = `${player} is involved in the ${eventName}.`;
+            }
+          }
+
+          return `${minute}' — ${sentence}`;
+        });
+        if (!filteredEvents.length) {
+          if (selectedPlayerId !== 'all') {
+            commentary.push('No analysis for this player in this window.');
+          } else {
+            commentary.push(`${current.minute}' — The ${current.patternLabel.toLowerCase()} sequence unfolds.`);
+          }
+        }
+
+        eventList.replaceChildren(...commentary.map((line) => {
+          const item = document.createElement('li');
+          item.textContent = line;
+          return item;
+        }));
       }
 
-      async function setMinute(minuteIndex) {
+      function buildMomentInsight(current) {
+        const events = current.triggeringEvents || [];
+        const count = (type, outcome) => events.filter((event) => {
+          return event.type === type && (!outcome || event.outcome === outcome);
+        }).length;
+        const completedPasses = count('pass', 'complete');
+        const pressures = count('pressure');
+        const tackles = count('tackle');
+        const shots = events.filter((event) => event.type === 'shot');
+        const actionSummary = [
+          completedPasses && `${completedPasses} completed ${completedPasses === 1 ? 'pass' : 'passes'}`,
+          pressures && `${pressures} ${pressures === 1 ? 'pressing action' : 'pressing actions'}`,
+          tackles && `${tackles} ${tackles === 1 ? 'tackle' : 'tackles'}`
+        ].filter(Boolean);
+        const sequenceSentence = actionSummary.length
+          ? `The spell featured ${actionSummary.join(', ')}.`
+          : 'The spell was shaped by a contest for possession.';
+
+        let consequenceSentence;
+        if (shots.length) {
+          const blockedShots = shots.filter((event) => event.outcome === 'blocked').length;
+          consequenceSentence = blockedShots === shots.length
+            ? `The attack produced ${shots.length === 1 ? 'a shot' : `${shots.length} shots`}, but the defense blocked ${shots.length === 1 ? 'it' : 'them'}.`
+            : `The attack produced ${shots.length === 1 ? 'a shot' : `${shots.length} shots`}.`;
+        } else {
+          const possessionChange = events.find((event) => event.type === 'possession_change');
+          const possessionTeam = possessionChange
+            ? matchData?.teams?.find((team) => team.team_id === possessionChange.team_id)?.name
+            : null;
+          const ballWinners = count('pressure', 'won') + count('tackle', 'won');
+          consequenceSentence = possessionChange
+            ? `Possession changed hands${possessionTeam ? `, with ${possessionTeam} recorded as winning it` : ''}.`
+            : ballWinners
+              ? 'Successful pressing and tackling helped win the ball.'
+              : completedPasses
+                ? 'The completed passes kept the move alive, though no shot is recorded in this spell.'
+                : 'No shot or change of possession is recorded in this spell.';
+        }
+
+        const patternInsight = {
+          pace_mismatch: 'The Pace mismatch label accompanies this spell, but the event records do not measure the pace difference itself.',
+          zone_shift: 'The Zone shift label accompanies this spell, but the event records do not identify a side-to-side switch.',
+          one_two: 'The One-two label accompanies this spell, but the event records do not identify a pass-and-return pairing.'
+        }[current.pattern] || `The ${current.patternLabel} label is assigned to this window; the events show the actions and outcome above.`;
+
+        return `${sequenceSentence} ${consequenceSentence} ${patternInsight}`;
+      }
+
+      function stopPlayback(status = 'Paused') {
+        playbackActive = false;
+        playbackRun += 1;
+        if (playbackTimer !== null) {
+          clearTimeout(playbackTimer);
+          playbackTimer = null;
+        }
+        pauseMatchButton.disabled = true;
+        playbackStatus.textContent = status;
+      }
+
+      function preparePlaybackEvents() {
+        const events = matchData?.events || [];
+        playbackEvents = events
+          .filter((event) => minutes.some((minute) => event.minute === minute.minute))
+          .map((event) => {
+            const windowIndex = minutes.findIndex((minute) => minute.minute === event.minute);
+            return { event, windowIndex };
+          })
+          .sort((left, right) => {
+            const minuteDifference = left.event.minute - right.event.minute;
+            if (minuteDifference !== 0) {
+              return minuteDifference;
+            }
+            const leftSecond = Number(left.event.timestamp?.split(':')[1]) || 0;
+            const rightSecond = Number(right.event.timestamp?.split(':')[1]) || 0;
+            return leftSecond - rightSecond;
+          });
+        playbackIndex = 0;
+      }
+
+      function updatePlayhead(windowIndex) {
+        const chart = document.getElementById('chart');
+        const playhead = chart.querySelector('.momentum-playhead');
+        const windowElement = chart.querySelector(`.momentum-window[data-index="${windowIndex}"]`);
+        if (!playhead || !windowElement) {
+          return;
+        }
+
+        playhead.style.left = `${windowElement.offsetLeft + windowElement.offsetWidth / 2}px`;
+        playhead.hidden = false;
+      }
+
+      async function selectCandle(candle, index) {
+        document.querySelectorAll('.candle').forEach((bar) => {
+          bar.classList.remove('active');
+        });
+        candle.classList.add('active');
+        showingMatchSummary = false;
+        updatePlayhead(index);
+        const selectedTeamClass = candle.classList.contains('team-b') ? 'team-b' : 'team-a';
+        await setMinute(index, true, selectedTeamClass);
+      }
+
+      async function advancePlayback(run) {
+        if (!playbackActive || run !== playbackRun) {
+          return;
+        }
+        playbackTimer = null;
+
+        if (playbackIndex >= playbackEvents.length) {
+          stopPlayback('Match Complete');
+          return;
+        }
+
+        const { event, windowIndex } = playbackEvents[playbackIndex];
+        const feedLine = document.createElement('div');
+        feedLine.className = 'live-event-feed-line';
+        feedLine.textContent = [
+          event.minute ?? 'N/A',
+          event.type ?? 'N/A',
+          event.player_id ?? 'N/A',
+          event.team_id ?? 'N/A'
+        ].map((value) => `[${value}]`).join(' ');
+        liveEventFeedLog.appendChild(feedLine);
+        liveEventFeedLog.scrollTop = liveEventFeedLog.scrollHeight;
+
+        playbackClock.textContent = event.timestamp || `${event.minute}:00`;
+        const candles = [...document.querySelectorAll(`.candle[data-index="${windowIndex}"]`)];
+        const teamIndex = (matchData?.teams || []).findIndex((team) => team.team_id === event.team_id);
+        const teamClass = teamIndex === 1 ? 'team-b' : 'team-a';
+        const candle = candles.find((candidate) => candidate.classList.contains(teamClass)) || candles[0];
+
+        if (candle) {
+          await selectCandle(candle, windowIndex);
+        }
+
+        playbackIndex += 1;
+        if (!playbackActive || run !== playbackRun) {
+          return;
+        }
+        if (playbackIndex >= playbackEvents.length) {
+          stopPlayback('Match Complete');
+          return;
+        }
+
+        playbackTimer = setTimeout(() => advancePlayback(run), 800);
+      }
+
+      function startPlayback() {
+        liveEventFeedLog.replaceChildren();
+        if (playbackActive) {
+          return;
+        }
+        if (!playbackEvents.length) {
+          playbackStatus.textContent = 'No events in the displayed pattern windows';
+          return;
+        }
+        if (playbackIndex >= playbackEvents.length) {
+          playbackIndex = 0;
+        }
+        playbackActive = true;
+        const run = ++playbackRun;
+        pauseMatchButton.disabled = false;
+        playbackStatus.textContent = 'Playing';
+        advancePlayback(run);
+      }
+
+      function rewindPlayback() {
+        stopPlayback('Rewound');
+        playbackIndex = 0;
+        const firstPlaybackEvent = playbackEvents[0];
+        if (!firstPlaybackEvent) {
+          playbackClock.textContent = '--:--';
+          return;
+        }
+
+        const { event, windowIndex } = firstPlaybackEvent;
+        playbackClock.textContent = event.timestamp || `${event.minute}:00`;
+        const candles = [...document.querySelectorAll(`.candle[data-index="${windowIndex}"]`)];
+        const teamIndex = (matchData?.teams || []).findIndex((team) => team.team_id === event.team_id);
+        const teamClass = teamIndex === 1 ? 'team-b' : 'team-a';
+        const candle = candles.find((candidate) => candidate.classList.contains(teamClass)) || candles[0];
+        if (candle) {
+          selectCandle(candle, windowIndex);
+        }
+      }
+
+      function eventInvolvesPlayer(event, playerId) {
+        return [
+          event?.primary_player_id,
+          event?.secondary_player_id,
+          event?.player_id
+        ].includes(playerId);
+      }
+
+      function matchesPlayerFocus(minute) {
+        const triggeringEvents = minute.triggeringEvents || [minute.primaryEvent];
+        return selectedPlayerId === 'all'
+          || triggeringEvents.some((event) => eventInvolvesPlayer(event, selectedPlayerId));
+      }
+
+      function applyPlayerFocus() {
+        const activeWindow = document.querySelector('.candle.active')?.closest('.momentum-window');
+        document.querySelectorAll('.momentum-window').forEach((windowElement) => {
+          const index = Number(windowElement.dataset.index);
+          const visible = windowElement === activeWindow || matchesPlayerFocus(minutes[index]);
+          windowElement.hidden = !visible;
+        });
+      }
+
+      function showMatchSummary() {
+        const patternWindows = matchData?.pattern_windows || [];
+        const teamMomentum = new Map();
+        patternWindows.forEach((window) => {
+          const momentum = Number(window.momentum);
+          if (!window.team_id || !Number.isFinite(momentum)) {
+            return;
+          }
+
+          const totals = teamMomentum.get(window.team_id) || { total: 0, count: 0 };
+          totals.total += momentum;
+          totals.count += 1;
+          teamMomentum.set(window.team_id, totals);
+        });
+
+        const teamAverages = [...teamMomentum].map(([teamId, totals]) => ({
+          teamId,
+          name: matchData?.teams?.find((team) => team.team_id === teamId)?.name || teamId,
+          average: totals.total / totals.count
+        }));
+        const highestAverage = Math.max(...teamAverages.map((team) => team.average));
+        const leadingTeams = teamAverages.filter((team) => team.average === highestAverage);
+        const averageSummary = teamAverages.length > 1
+          ? leadingTeams.length > 1
+            ? `${leadingTeams.map((team) => team.name).join(' and ')} share the highest average momentum at ${highestAverage.toFixed(1)}`
+            : `${leadingTeams[0].name} had the higher average momentum (${highestAverage.toFixed(1)} vs. ${teamAverages.find((team) => team.teamId !== leadingTeams[0].teamId).average.toFixed(1)})`
+          : teamAverages.length === 1
+            ? `momentum data is available only for ${teamAverages[0].name}, so a higher team average cannot be determined`
+            : 'team momentum averages cannot be determined from the available windows';
+
+        const momentumWindows = patternWindows.filter((window) => Number.isFinite(Number(window.momentum)));
+        const peakMomentum = Math.max(...momentumWindows.map((window) => Number(window.momentum)));
+        const peakWindows = momentumWindows.filter((window) => Number(window.momentum) === peakMomentum);
+        const peakSummary = peakWindows.length
+          ? peakWindows.map((window) => `${window.minute}' (${window.patternLabel || window.pattern})`).join(', ')
+          : 'unavailable';
+
+        const patternCounts = new Map();
+        patternWindows.forEach((window) => {
+          if (window.pattern) {
+            patternCounts.set(window.pattern, (patternCounts.get(window.pattern) || 0) + 1);
+          }
+        });
+        const highestPatternCount = Math.max(...patternCounts.values());
+        const dominantPatterns = [...patternCounts]
+          .filter(([, count]) => count === highestPatternCount)
+          .map(([pattern]) => {
+            return patternWindows.find((window) => window.pattern === pattern)?.patternLabel || pattern;
+          });
+        const dominantSummary = dominantPatterns.length
+          ? dominantPatterns.length > 1
+            ? `The co-dominant patterns were ${dominantPatterns.join(' and ')} (${highestPatternCount} windows each)`
+            : `The dominant pattern was ${dominantPatterns[0]} (${highestPatternCount} windows)`
+          : 'A dominant pattern cannot be determined from the available windows';
+
+        showingMatchSummary = true;
+        matchSummaryButton.textContent = 'BACK TO NARRATIVE';
+        eventTag.hidden = true;
+        narrativeText.textContent = `Across the match, ${averageSummary}. Peak momentum occurred at ${peakSummary}. ${dominantSummary}.`;
+        playerIdentification.textContent = '';
+        eventList.innerHTML = '';
+        setPlayByPlayOpen(false, false);
+        playByPlay.hidden = true;
+        analysisBox.hidden = true;
+      }
+
+      async function setMinute(minuteIndex, expandPlayByPlay = false, selectedTeamClass = 'team-a') {
         const current = minutes[minuteIndex];
+        const renderVersion = ++narrativeRenderVersion;
         const mode = modeSelect.value;
 
+        showingMatchSummary = false;
+        matchSummaryButton.textContent = 'MATCH SUMMARY';
+        eventTag.hidden = false;
+        playByPlay.hidden = false;
+        analysisBox.hidden = false;
         clock.textContent = `${current.minute}'`;
         eventTag.textContent = current.patternLabel;
 
-        if (mode === 'analyst') {
-          narrativeText.innerHTML = `<strong>${current.patternLabel}</strong> — ${analystNotes[current.pattern]}`;
+        const primaryEvent = current.primaryEvent;
+        const playerDetails = [];
+        if (primaryEvent?.secondary_player_id) {
+          playerDetails.push(`Involved: ${primaryEvent.secondary_player_id}`);
+        }
+
+        if (!matchesPlayerFocus(current)) {
+          narrativeText.textContent = 'No analysis for this player in this window';
+        } else if (mode === 'analyst') {
+          if (
+            primaryEvent?.type === 'pass'
+            && Array.isArray(primaryEvent.start_coordinates)
+            && Array.isArray(primaryEvent.end_coordinates)
+            && primaryEvent.start_coordinates.length >= 2
+            && primaryEvent.end_coordinates.length >= 2
+          ) {
+            const [startX, startY] = primaryEvent.start_coordinates.map(Number);
+            const [endX, endY] = primaryEvent.end_coordinates.map(Number);
+            if ([startX, startY, endX, endY].every(Number.isFinite)) {
+              const distance = Math.hypot(
+                (endX - startX) * 1.05,
+                (endY - startY) * 0.68
+              );
+              playerDetails.push(`Pass distance: ${distance.toFixed(1)}m`);
+            }
+          }
+
+          const windowEvents = matchData?.events.filter((event) => {
+            return Math.abs(event.minute - current.minute) <= 1;
+          }) || [];
+          const windowPatterns = matchData?.pattern_windows
+            .filter((window) => Math.abs(window.minute - current.minute) <= 1) || [];
+          const patternNames = [...new Set(windowPatterns.map((window) => window.patternLabel))];
+          const selectedPatternWindow = matchData?.pattern_windows
+            .find((window) => window.minute === current.minute);
+          const teamWindows = (matchData?.pattern_windows || [])
+            .filter((window) => window.team_id === selectedPatternWindow?.team_id);
+          const patternFrequency = (pattern) => teamWindows.length
+            ? `${Math.round(teamWindows.filter((window) => window.pattern === pattern).length / teamWindows.length * 100)}%`
+            : 'N/A';
+          const matchEvents = matchData?.events || [];
+          const matchMinutes = matchEvents.map((event) => event.minute);
+          const matchDuration = Math.max(...matchMinutes) - Math.min(...matchMinutes) + 1;
+          const averageWindowEvents = (matchEvents.length / matchDuration) * 3;
+          const rhythm = windowEvents.length > averageWindowEvents ? 'High tempo' : 'Low tempo';
+          const control = new Set(windowPatterns.map((window) => window.pattern)).size >= 2
+            ? 'Chaos dominant'
+            : 'Control dominant';
+          const teamsInWindow = new Set(windowEvents.map((event) => event.team_id)).size;
+          const tempoEvidence = teamsInWindow > 1
+            ? 'Both teams were involved in the action.'
+            : 'Only one team was involved in the action.';
+          const possessionChanges = windowEvents.filter((event) => event.type === 'possession_change').length;
+
+          narrativeText.innerHTML = `<strong>Game Rhythm: ${rhythm}</strong> — <em>This window had ${windowEvents.length} events, ${windowEvents.length > averageWindowEvents ? 'above' : 'at or below'} the match average of ${averageWindowEvents.toFixed(1)} per 3-minute window. ${tempoEvidence}</em><br><strong>Control vs. Chaos: ${control}</strong> <small>(Pace mismatch ${patternFrequency('pace_mismatch')} · Zone shift ${patternFrequency('zone_shift')} · One-two ${patternFrequency('one_two')})</small> — <em>This window contained ${patternNames.length} different pattern types (${patternNames.join(', ')}). Possession changed hands ${possessionChanges} times.</em><br><br><strong>${current.patternLabel}</strong> — ${analystNotes[current.pattern]}`;
           renderNarrativeList(current);
-          analysisText.textContent = `${current.mainEvent} Direct evidence: ${current.events.join(' ')}`;
         } else if (mode === 'casual-spanish') {
           const englishText = getCasualNarrativeText(current);
           const translation = await fetchSpanishNarrative(englishText);
+          if (renderVersion !== narrativeRenderVersion) {
+            return;
+          }
           narrativeText.innerHTML = translation.unavailable
             ? `Translation unavailable: ${englishText}`
             : translation.text;
           renderNarrativeList(current);
-          analysisText.textContent = translation.unavailable
-            ? 'Translation unavailable'
-            : 'Spanish translation loaded';
         } else {
           const englishText = getCasualNarrativeText(current);
           narrativeText.innerHTML = englishText;
           renderNarrativeList(current);
-          analysisText.textContent = `Data-backed sequence: ${current.mainEvent} ${current.events[0]} ${current.events[1]}`;
         }
 
-        highlightZones(current.zones);
+        playerIdentification.textContent = matchesPlayerFocus(current)
+          ? playerDetails.join('\n')
+          : '';
+        analysisText.textContent = buildMomentInsight(current);
+        setPlayByPlayOpen(expandPlayByPlay, false);
+        highlightZones(current.zones, selectedTeamClass);
       }
 
       function renderChart() {
         const chart = document.getElementById('chart');
         chart.innerHTML = '';
+        const playhead = document.createElement('div');
+        playhead.className = 'momentum-playhead';
+        playhead.hidden = true;
+        playhead.setAttribute('aria-hidden', 'true');
+        chart.appendChild(playhead);
+        const maxMomentum = Math.max(
+          ...minutes.flatMap((minute) => minute.teamMomentum.map((team) => team.momentum)),
+          1
+        );
 
         minutes.forEach((minute, index) => {
-          const candle = document.createElement('div');
-          const tone = minute.momentum >= 80 ? 'positive' : minute.momentum < 55 ? 'negative' : 'neutral';
-          const height = Math.max(34, minute.momentum);
-          candle.className = `candle ${tone}`;
-          candle.style.height = `${height}%`;
-          candle.dataset.index = index;
-          candle.title = `${minute.minute}' ${minute.patternLabel}`;
-          candle.innerHTML = `<span class="minute-label">${minute.minute}'</span>`;
-          candle.addEventListener('click', () => {
-            document.querySelectorAll('.candle').forEach((bar) => bar.classList.remove('active'));
-            candle.classList.add('active');
-            setMinute(index);
+          const windowElement = document.createElement('div');
+          windowElement.className = 'momentum-window';
+          windowElement.dataset.index = index;
+          windowElement.title = `${minute.minute}' ${minute.patternLabel}`;
+
+          minute.teamMomentum.forEach((team, teamIndex) => {
+            const candle = document.createElement('div');
+            const height = team.momentum > 0
+              ? Math.max(20, (team.momentum / maxMomentum) * 100)
+              : 0;
+            candle.className = `candle ${teamIndex === 0 ? 'team-a' : 'team-b'}`;
+            candle.style.height = `${height}%`;
+            candle.dataset.index = index;
+            candle.dataset.teamId = team.teamId;
+            candle.title = `${team.teamName}: ${team.momentum.toFixed(1)} momentum`;
+            candle.setAttribute('aria-label', `${team.teamName}, ${team.momentum.toFixed(1)} momentum at ${minute.minute}'`);
+            candle.addEventListener('click', () => {
+              if (playbackActive) {
+                stopPlayback();
+              }
+              selectCandle(candle, index);
+            });
+            windowElement.appendChild(candle);
           });
-          chart.appendChild(candle);
+
+          const label = document.createElement('span');
+          label.className = 'minute-label';
+          label.textContent = `${minute.minute}'`;
+          windowElement.appendChild(label);
+          chart.appendChild(windowElement);
         });
 
-        const first = document.querySelector('.candle');
-        if (first) first.classList.add('active');
+        document.querySelector('.candle[data-index="0"]')?.classList.add('active');
       }
 
+      playMatchButton.addEventListener('click', startPlayback);
+      pauseMatchButton.addEventListener('click', () => stopPlayback());
+      rewindMatchButton.addEventListener('click', rewindPlayback);
+
       modeSelect.addEventListener('change', () => {
-        const selectedIndex = [...document.querySelectorAll('.candle')].findIndex((bar) => bar.classList.contains('active'));
-        setMinute(selectedIndex >= 0 ? selectedIndex : 0);
+        if (showingMatchSummary) {
+          return;
+        }
+        if (playbackActive) {
+          stopPlayback();
+        }
+        const selectedCandle = document.querySelector('.candle.active');
+        const selectedIndex = selectedCandle?.dataset.index;
+        const selectedTeamClass = selectedCandle?.classList.contains('team-b') ? 'team-b' : 'team-a';
+        setMinute(selectedIndex === undefined ? 0 : Number(selectedIndex), false, selectedTeamClass);
       });
 
-      renderChart();
-      setMinute(0);
+      playerFocusSelect.addEventListener('change', () => {
+        if (playbackActive) {
+          stopPlayback();
+        }
+        selectedPlayerId = playerFocusSelect.options[playerFocusSelect.selectedIndex]?.value
+          ?? playerFocusSelect.value;
+        narrativeRenderVersion += 1;
+        narrativeText.textContent = '';
+        showingMatchSummary = false;
+        matchSummaryButton.textContent = 'MATCH SUMMARY';
+
+        if (selectedPlayerId === 'all') {
+          playerFocusTeamSwatch.className = 'player-focus-team-swatch';
+          playerFocusTeamName.textContent = '';
+          document.getElementById('player-focus-team').hidden = true;
+        } else {
+          const selectedOption = playerFocusSelect.options[playerFocusSelect.selectedIndex];
+          const teamClass = selectedOption?.dataset.teamClass || '';
+          playerFocusTeamSwatch.className = `player-focus-team-swatch ${teamClass}`;
+          playerFocusTeamName.textContent = selectedOption?.dataset.teamName || '';
+          document.getElementById('player-focus-team').hidden = false;
+        }
+
+        applyPlayerFocus();
+        const activeCandle = document.querySelector('.candle.active');
+        const selectedIndex = activeCandle?.dataset.index;
+        const selectedTeamClass = activeCandle?.classList.contains('team-b') ? 'team-b' : 'team-a';
+        void setMinute(selectedIndex === undefined ? 0 : Number(selectedIndex), false, selectedTeamClass);
+      });
+
+      matchSummaryButton.addEventListener('click', () => {
+        if (playbackActive) {
+          stopPlayback();
+        }
+        if (showingMatchSummary) {
+          const selectedCandle = document.querySelector('.candle.active');
+          const selectedIndex = selectedCandle?.dataset.index;
+          const selectedTeamClass = selectedCandle?.classList.contains('team-b') ? 'team-b' : 'team-a';
+          setMinute(selectedIndex === undefined ? 0 : Number(selectedIndex), false, selectedTeamClass);
+          return;
+        }
+
+        showMatchSummary();
+      });
+
+      loadMatch();
     </script>
   </body>
 </html>

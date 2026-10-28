@@ -75,3 +75,5 @@ The official dataset is not committed to this repository. Keep it in a local fol
 ## Notes
 
 This repo intentionally stays focused on the seven inspiration questions and does not attempt to build team style, counterattack, or player performance analytics.
+
+See OVERLAY_CONTRACT.md for the broadcast overlay data contract.

@@ -1,407 +1,123 @@
 #!/usr/bin/env python3
-"""Generate a deterministic synthetic 90-minute football match as JSON.
-
-Usage:
-  python generate_match.py --seed 42
-  python generate_match.py --seed 42 --output match.json
-"""
-
-from __future__ import annotations
-
 import argparse
 import json
-import random
 from pathlib import Path
-from typing import Any, Dict, List
 
 
-def fictional_player(name: str, player_id: str, role: str, pace: int, passing: int, pressing: int, x: float, y: float) -> Dict[str, Any]:
-    return {
-        "player_id": player_id,
-        "name": name,
-        "role": role,
-        "attributes": {
-            "pace": pace,
-            "passing": passing,
-            "pressing": pressing,
-        },
-        "start_position": {"x": x, "y": y},
-    }
-
-
-def build_team(team_id: str, team_name: str, possession_style: float, press_style: float, focus_side: str) -> Dict[str, Any]:
-    players = [
-        fictional_player("Milo Voss", f"{team_id}-1", "GK", 70, 58, 50, 5, 50),
-        fictional_player("Tariq Den", f"{team_id}-2", "RB", 72, 63, 64, 16, 18),
-        fictional_player("Evan Sorel", f"{team_id}-3", "CB", 62, 61, 67, 28, 40),
-        fictional_player("Nico Rale", f"{team_id}-4", "CB", 63, 60, 68, 28, 60),
-        fictional_player("Jules Arden", f"{team_id}-5", "LB", 68, 65, 60, 16, 82),
-        fictional_player("Omar Saye", f"{team_id}-6", "CM", 74, 78, 69, 40, 34),
-        fictional_player("Luca Venn", f"{team_id}-7", "RW", 92, 70, 66, 78, 16),
-        fictional_player("Ilan Brox", f"{team_id}-8", "CM", 76, 80, 70, 44, 50),
-        fictional_player("Dorian Vale", f"{team_id}-9", "ST", 79, 73, 68, 78, 50),
-        fictional_player("Kian Sato", f"{team_id}-10", "AM", 80, 84, 72, 62, 50),
-        fictional_player("Rafi Duran", f"{team_id}-11", "LW", 94, 72, 67, 78, 84),
+def build_match(seed: int):
+    teams = [
+        {"team_id": "team_alpha", "name": "Team Alpha", "style": "high press"},
+        {"team_id": "team_beta", "name": "Team Beta", "style": "low block"},
     ]
 
-    if team_id == "HCF":
-        players[1]["name"] = "Rafe Querol"
-        players[5]["name"] = "Bruno Keel"
-        players[7]["name"] = "Cian Ors"
-        players[10]["name"] = "Leno Ardy"
-        players[1]["attributes"]["pace"] = 63
-        players[4]["attributes"]["pace"] = 61
-        players[6]["attributes"]["pace"] = 94
-        players[10]["attributes"]["pace"] = 95
-        players[6]["role"] = "RW"
-        players[10]["role"] = "LW"
-        players[7]["role"] = "CM"
+    players = [
+        {"player_id": "Player_01", "team_id": "team_alpha", "name": "Player_01", "role": "RW", "pace": 92},
+        {"player_id": "Player_02", "team_id": "team_alpha", "name": "Player_02", "role": "RB", "pace": 74},
+        {"player_id": "Player_03", "team_id": "team_alpha", "name": "Player_03", "role": "CM", "pace": 82},
+        {"player_id": "Player_04", "team_id": "team_alpha", "name": "Player_04", "role": "CF", "pace": 83},
+        {"player_id": "Player_05", "team_id": "team_alpha", "name": "Player_05", "role": "LB", "pace": 78},
+        {"player_id": "Player_06", "team_id": "team_alpha", "name": "Player_06", "role": "DM", "pace": 80},
+        {"player_id": "Player_07", "team_id": "team_alpha", "name": "Player_07", "role": "AM", "pace": 84},
+        {"player_id": "Player_08", "team_id": "team_alpha", "name": "Player_08", "role": "LW", "pace": 88},
+        {"player_id": "Player_09", "team_id": "team_alpha", "name": "Player_09", "role": "ST", "pace": 81},
+        {"player_id": "Player_10", "team_id": "team_alpha", "name": "Player_10", "role": "CB", "pace": 72},
+        {"player_id": "Player_11", "team_id": "team_beta", "name": "Player_11", "role": "LB", "pace": 69},
+        {"player_id": "Player_12", "team_id": "team_beta", "name": "Player_12", "role": "RB", "pace": 63},
+        {"player_id": "Player_13", "team_id": "team_beta", "name": "Player_13", "role": "CM", "pace": 74},
+        {"player_id": "Player_14", "team_id": "team_beta", "name": "Player_14", "role": "CF", "pace": 80},
+        {"player_id": "Player_15", "team_id": "team_beta", "name": "Player_15", "role": "RW", "pace": 85},
+        {"player_id": "Player_16", "team_id": "team_beta", "name": "Player_16", "role": "DM", "pace": 78},
+        {"player_id": "Player_17", "team_id": "team_beta", "name": "Player_17", "role": "AM", "pace": 82},
+        {"player_id": "Player_18", "team_id": "team_beta", "name": "Player_18", "role": "LW", "pace": 87},
+        {"player_id": "Player_19", "team_id": "team_beta", "name": "Player_19", "role": "ST", "pace": 79},
+        {"player_id": "Player_20", "team_id": "team_beta", "name": "Player_20", "role": "CB", "pace": 72},
+    ]
 
-    if team_id == "RCF":
-        players[1]["name"] = "Marek Hyl"
-        players[4]["name"] = "Ivo Cale"
-        players[6]["name"] = "Nilo Fenn"
-        players[10]["name"] = "Theo Brask"
-        players[1]["attributes"]["pace"] = 76
-        players[4]["attributes"]["pace"] = 79
-        players[6]["attributes"]["pace"] = 88
-        players[10]["attributes"]["pace"] = 90
-        players[7]["role"] = "CM"
+    def add_event(minute, second, event_type, player_id, team_id, start, end, outcome):
+        return {
+            "timestamp": f"{minute}:{second:02d}",
+            "minute": minute,
+            "type": event_type,
+            "player_id": player_id,
+            "team_id": team_id,
+            "start_coordinates": [round(float(start[0]), 1), round(float(start[1]), 1)],
+            "end_coordinates": [round(float(end[0]), 1), round(float(end[1]), 1)],
+            "outcome": outcome,
+        }
+
+    events = []
+
+    for minute in range(90):
+        if minute % 3 == 0:
+            if minute < 60:
+                start = [76, 28]
+                end = [86, 30]
+                player = "Player_01"
+            else:
+                start = [22, 72]
+                end = [12, 70]
+                player = "Player_08"
+            events.append(add_event(minute, 20, "pass", player, "team_alpha", start, end, "complete"))
+
+        if minute % 4 == 0:
+            events.append(add_event(minute, 10, "pressure", "Player_03", "team_alpha", [52, 52], [60, 37], "won"))
+
+        if minute % 5 == 0:
+            events.append(add_event(minute, 31, "tackle", "Player_16", "team_beta", [50, 48], [45, 42], "won"))
+
+        if minute % 7 == 0:
+            events.append(add_event(minute, 43, "possession_change", "Player_06", "team_alpha", [42, 52], [52, 46], "won"))
+
+        if minute > 20 and minute % 9 == 0:
+            events.append(add_event(minute, 46, "shot", "Player_09", "team_alpha", [72, 54], [90, 52], "blocked"))
+
+    pattern_events = [
+        (61, 20, "pass", "Player_01", "team_alpha", [82, 28], [88, 32], "complete"),
+        (61, 32, "pressure", "Player_01", "team_alpha", [84, 26], [92, 32], "won"),
+        (61, 48, "tackle", "Player_12", "team_beta", [18, 18], [22, 26], "won"),
+        (62, 18, "pass", "Player_03", "team_alpha", [46, 42], [18, 62], "complete"),
+        (62, 36, "pressure", "Player_07", "team_alpha", [62, 38], [30, 62], "won"),
+        (62, 52, "pass", "Player_08", "team_alpha", [78, 68], [10, 70], "complete"),
+        (63, 22, "pass", "Player_09", "team_alpha", [70, 52], [58, 48], "complete"),
+        (63, 41, "pass", "Player_10", "team_alpha", [58, 48], [66, 54], "complete"),
+        (63, 54, "pressure", "Player_06", "team_alpha", [48, 52], [68, 50], "won"),
+        (64, 18, "pass", "Player_01", "team_alpha", [82, 30], [88, 34], "complete"),
+        (64, 39, "pressure", "Player_01", "team_alpha", [86, 30], [92, 38], "won"),
+        (64, 50, "tackle", "Player_12", "team_beta", [20, 18], [24, 26], "lost"),
+        (65, 14, "pass", "Player_07", "team_alpha", [56, 38], [20, 72], "complete"),
+        (65, 36, "pressure", "Player_08", "team_alpha", [76, 72], [12, 70], "won"),
+        (65, 48, "pass", "Player_05", "team_alpha", [18, 74], [12, 70], "complete"),
+    ]
+
+    for minute, second, event_type, player_id, team_id, start, end, outcome in pattern_events:
+        events.append(add_event(minute, second, event_type, player_id, team_id, start, end, outcome))
+
+    events.sort(key=lambda event: (event["minute"], int(event["timestamp"].split(":")[1])))
+
+    pattern_windows = [
+        {"minute": 61, "pattern": "pace_mismatch", "patternLabel": "Pace mismatch", "team_id": "team_alpha", "zones": ["Z1", "Z2", "Z4"], "xg": 0.34, "momentum": 68, "narrativeKey": 0},
+        {"minute": 62, "pattern": "zone_shift", "patternLabel": "Zone shift", "team_id": "team_alpha", "zones": ["Z7", "Z8", "Z9"], "xg": 0.28, "momentum": 76, "narrativeKey": 1},
+        {"minute": 63, "pattern": "one_two", "patternLabel": "One-two", "team_id": "team_alpha", "zones": ["Z5", "Z6", "Z8"], "xg": 0.41, "momentum": 84, "narrativeKey": 2},
+        {"minute": 64, "pattern": "pace_mismatch", "patternLabel": "Pace mismatch", "team_id": "team_alpha", "zones": ["Z2", "Z3", "Z4"], "xg": 0.39, "momentum": 88, "narrativeKey": 0},
+        {"minute": 65, "pattern": "zone_shift", "patternLabel": "Zone shift", "team_id": "team_alpha", "zones": ["Z7", "Z8", "Z9"], "xg": 0.36, "momentum": 79, "narrativeKey": 1},
+    ]
 
     return {
-        "team_id": team_id,
-        "team_name": team_name,
-        "formation": "4-3-3",
-        "possession_style": possession_style,
-        "press_style": press_style,
-        "focus_side": focus_side,
-        "players": players,
-    }
-
-
-def clamp(value: float, low: float, high: float) -> float:
-    return max(low, min(high, value))
-
-
-def make_event(
-    minute: float,
-    event_type: str,
-    team: str,
-    player_id: str,
-    start: Dict[str, float],
-    end: Dict[str, float],
-    related_player_id: str | None = None,
-    outcome: str | None = None,
-    tags: List[str] | None = None,
-    details: Dict[str, Any] | None = None,
-) -> Dict[str, Any]:
-    event: Dict[str, Any] = {
-        "minute": round(minute, 2),
-        "team": team,
-        "event_type": event_type,
-        "player_id": player_id,
-        "start": {"x": round(start["x"], 2), "y": round(start["y"], 2)},
-        "end": {"x": round(end["x"], 2), "y": round(end["y"], 2)},
-    }
-    if related_player_id:
-        event["related_player_id"] = related_player_id
-    if outcome:
-        event["outcome"] = outcome
-    if tags:
-        event["tags"] = tags
-    if details:
-        event.update(details)
-    return event
-
-
-def generate_match(seed: int) -> Dict[str, Any]:
-    rng = random.Random(seed)
-    home = build_team("HCF", "Harbor City FC", possession_style=0.78, press_style=0.58, focus_side="right")
-    away = build_team("RCF", "Redstone City FC", possession_style=0.52, press_style=0.74, focus_side="left")
-
-    possession = "HCF"
-    home_possession = 58
-    away_possession = 42
-
-    events: List[Dict[str, Any]] = []
-    first_half_events = []
-    second_half_events = []
-
-    event_count = 0
-    for minute in range(0, 90):
-        if minute == 60:
-            shift = {
-                "minute": 60.0,
-                "team": "HCF",
-                "event_type": "tactical_shift",
-                "details": {
-                    "from_side": "right",
-                    "to_side": "left",
-                    "trigger": "zone_shift",
-                    "summary": "Harbor City switch attacking focus from the right flank to the left flank after halftime.",
-                },
-                "tags": ["zone_shift"],
-                "start": {"x": 50.0, "y": 50.0},
-                "end": {"x": 50.0, "y": 50.0},
-            }
-            events.append(shift)
-
-        # Phase Tactics: possession-based teams pass more; high press teams create more pressure events.
-        if minute < 60:
-            attack_team = "HCF" if possession == "HCF" else "RCF"
-            if attack_team == "HCF":
-                own_team = home
-                opp_team = away
-                press_bias = 0.18
-                pass_weight = 0.60
-            else:
-                own_team = away
-                opp_team = home
-                press_bias = 0.35
-                pass_weight = 0.45
-        else:
-            if possession == "HCF":
-                own_team = home
-                opp_team = away
-                press_bias = 0.22
-                pass_weight = 0.56
-            else:
-                own_team = away
-                opp_team = home
-                press_bias = 0.30
-                pass_weight = 0.42
-
-        # Switch attack focus at minute 60.
-        if minute >= 60:
-            home["focus_side"] = "left"
-            own_team = home if possession == "HCF" else away
-            if own_team["team_id"] == "HCF":
-                focus_side = "left"
-            else:
-                focus_side = "right"
-        else:
-            focus_side = "right"
-
-        # Generate a natural rhythm of events for each minute.
-        event_step = rng.random()
-        if event_step < 0.12:
-            team_choice = "HCF" if rng.random() < home_possession / 100 else "RCF"
-            team = home if team_choice == "HCF" else away
-            if team_choice == "HCF":
-                player = team["players"][9]
-                target = team["players"][10]
-            else:
-                player = team["players"][9]
-                target = team["players"][6]
-            pass_event = make_event(
-                float(minute) + rng.uniform(0.05, 0.95),
-                "pass",
-                team["team_name"],
-                player["player_id"],
-                start={"x": clamp(player["start_position"]["x"] + rng.uniform(-8, 8), 0, 100), "y": clamp(player["start_position"]["y"] + rng.uniform(-10, 10), 0, 100)},
-                end={"x": clamp(target["start_position"]["x"] + rng.uniform(-5, 5), 0, 100), "y": clamp(target["start_position"]["y"] + rng.uniform(-8, 8), 0, 100)},
-                related_player_id=target["player_id"],
-                outcome="complete",
-                tags=["possession"] if team["team_id"] == "HCF" else ["build_up"],
-                details={"pass_type": "short" if rng.random() < 0.65 else "switch"},
-            )
-            events.append(pass_event)
-            event_count += 1
-
-        if event_step >= 0.12 and event_step < 0.34:
-            team = home if rng.random() < 0.55 else away
-            team_data = home if team == home else away
-            press_player = team_data["players"][rng.randrange(2, 10)]
-            opponent_player = away["players"][rng.randrange(2, 10)] if team is home else home["players"][rng.randrange(2, 10)]
-            press_x = 64 if team_data["team_id"] == "HCF" else 36
-            press_y = 50 if rng.random() < 0.5 else 70 if team_data["team_id"] == "HCF" else 30
-            pressure_event = make_event(
-                float(minute) + rng.uniform(0.1, 0.9),
-                "pressure",
-                team_data["team_name"],
-                press_player["player_id"],
-                start={"x": clamp(press_x + rng.uniform(-8, 8), 0, 100), "y": clamp(press_y + rng.uniform(-8, 8), 0, 100)},
-                end={"x": clamp(press_x + rng.uniform(-10, 10), 0, 100), "y": clamp(press_y + rng.uniform(-10, 10), 0, 100)},
-                related_player_id=opponent_player["player_id"],
-                outcome="won" if team_data["press_style"] > 0.65 else "contained",
-                tags=["press"],
-                details={"zone": "opponent_half" if team_data["team_id"] == "HCF" else "final_third"},
-            )
-            if team_data["team_id"] == "HCF" and minute >= 60:
-                pressure_event["tags"].append("zone_shift")
-            events.append(pressure_event)
-            event_count += 1
-
-        if event_step >= 0.34 and event_step < 0.42:
-            team = home if rng.random() < 0.58 else away
-            team_data = home if team is home else away
-            tackler = team_data["players"][rng.randrange(1, 10)]
-            victim = away["players"][rng.randrange(1, 10)] if team is home else home["players"][rng.randrange(1, 10)]
-            tackle_event = make_event(
-                float(minute) + rng.uniform(0.2, 0.8),
-                "tackle",
-                team_data["team_name"],
-                tackler["player_id"],
-                start={"x": clamp(40 + rng.uniform(-10, 10), 0, 100), "y": clamp(50 + rng.uniform(-15, 15), 0, 100)},
-                end={"x": clamp(35 + rng.uniform(-10, 10), 0, 100), "y": clamp(50 + rng.uniform(-15, 15), 0, 100)},
-                related_player_id=victim["player_id"],
-                outcome="won",
-                tags=["defensive_recovery"],
-                details={"challenge_type": "slide" if rng.random() < 0.4 else "standing"},
-            )
-            events.append(tackle_event)
-            event_count += 1
-
-        if event_step >= 0.42 and event_step < 0.50:
-            # possession transitions are intentionally weighted by style.
-            team = home if rng.random() < (home_possession / 100) else away
-            team_data = home if team is home else away
-            possession_event = make_event(
-                float(minute) + rng.uniform(0.1, 0.9),
-                "possession_change",
-                team_data["team_name"],
-                team_data["players"][rng.randrange(0, 11)]["player_id"],
-                start={"x": 50.0, "y": 50.0},
-                end={"x": 50.0, "y": 50.0},
-                outcome="gain",
-                tags=["turnover"],
-                details={"new_possession": team_data["team_name"], "reason": "recover" if rng.random() < 0.6 else "interception"},
-            )
-            events.append(possession_event)
-            possession = team_data["team_id"]
-            if possession == "HCF":
-                home_possession = clamp(home_possession + 4, 40, 70)
-                away_possession = 100 - home_possession
-            else:
-                away_possession = clamp(away_possession + 4, 40, 70)
-                home_possession = 100 - away_possession
-            event_count += 1
-
-        if event_step >= 0.50 and event_step < 0.57:
-            team = home if rng.random() < 0.58 else away
-            team_data = home if team is home else away
-            shooter = team_data["players"][rng.randrange(6, 11)]
-            shot_x = 80 if team_data["team_id"] == "HCF" else 20
-            shot_y = 48 + rng.uniform(-22, 22)
-            shot_event = make_event(
-                float(minute) + rng.uniform(0.2, 0.9),
-                "shot",
-                team_data["team_name"],
-                shooter["player_id"],
-                start={"x": clamp(shooter["start_position"]["x"], 0, 100), "y": clamp(shooter["start_position"]["y"], 0, 100)},
-                end={"x": shot_x, "y": shot_y},
-                outcome="on_target" if rng.random() < 0.5 else "off_target",
-                tags=["final_third"],
-                details={"zone": "right" if team_data["team_id"] == "HCF" and minute < 60 else "left" if team_data["team_id"] == "HCF" else "central"},
-            )
-            if team_data["team_id"] == "HCF" and minute >= 60:
-                shot_event["tags"].append("zone_shift")
-            events.append(shot_event)
-            event_count += 1
-
-    # Add the needed demo patterns explicitly to ensure they are visible in the output.
-    pace_mismatch_event = make_event(
-        41.4,
-        "pass",
-        "Harbor City FC",
-        "HCF-11",
-        start={"x": 72.0, "y": 78.0},
-        end={"x": 90.0, "y": 58.0},
-        related_player_id="HCF-2",
-        outcome="complete",
-        tags=["pace_mismatch", "left_flank", "fast_winger"],
-        details={
-            "summary": "Fast winger beats the slow full-back down the flank using pace and direct running.",
-            "winger_id": "HCF-11",
-            "full_back_id": "HCF-2",
-            "winger_pace": 95,
-            "full_back_pace": 61,
-        },
-    )
-    events.append(pace_mismatch_event)
-
-    zone_shift_event = make_event(
-        60.5,
-        "pass",
-        "Harbor City FC",
-        "HCF-10",
-        start={"x": 52.0, "y": 52.0},
-        end={"x": 76.0, "y": 82.0},
-        related_player_id="HCF-11",
-        outcome="complete",
-        tags=["zone_shift", "left_flank"],
-        details={
-            "summary": "The team pivots from the right flank to the left flank as the winger becomes the primary outlet.",
-            "from_side": "right",
-            "to_side": "left",
-        },
-    )
-    events.append(zone_shift_event)
-
-    # Sort events by minute and keep a stable order.
-    events.sort(key=lambda item: (float(item["minute"]), item["event_type"]))
-
-    match = {
         "seed": seed,
-        "match_id": f"synthetic-{seed:06d}",
-        "duration_minutes": 90,
-        "teams": {
-            "home": {
-                "team_id": home["team_id"],
-                "team_name": home["team_name"],
-                "formation": home["formation"],
-                "players": home["players"],
-            },
-            "away": {
-                "team_id": away["team_id"],
-                "team_name": away["team_name"],
-                "formation": away["formation"],
-                "players": away["players"],
-            },
-        },
-        "patterns": {
-            "pace_mismatch": {
-                "active": True,
-                "flank": "left",
-                "winger_id": "HCF-11",
-                "full_back_id": "HCF-2",
-                "trigger_minute": 41.4,
-                "description": "Fast winger attacks the slow full-back on the left side.",
-            },
-            "zone_shift": {
-                "active": True,
-                "minute": 60.0,
-                "from_side": "right",
-                "to_side": "left",
-                "description": "Harbor City switches attacking focus from right to left after halftime.",
-            },
-        },
+        "teams": teams,
+        "players": players,
         "events": events,
+        "pattern_windows": pattern_windows,
     }
-    return match
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate a deterministic 90-minute synthetic football match JSON.")
-    parser.add_argument("--seed", type=int, required=True, help="Integer seed for deterministic generation.")
-    parser.add_argument("--output", type=str, default="-", help="Path to save JSON output. Use '-' for stdout.")
-    return parser.parse_args()
-
-
-def main() -> None:
-    args = parse_args()
-    payload = generate_match(args.seed)
-    json_text = json.dumps(payload, indent=2)
-
-    if args.output == "-":
-        print(json_text)
-        return
-
-    out_path = Path(args.output)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json_text + "\n", encoding="utf-8")
-    print(f"Wrote synthetic match JSON to {out_path}")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Generate synthetic football match data.")
+    parser.add_argument("--seed", type=int, default=42, help="Deterministic random seed.")
+    args = parser.parse_args()
+
+    match = build_match(args.seed)
+    output_path = Path(__file__).with_name("match.json")
+    output_path.write_text(json.dumps(match, indent=2), encoding="utf-8")
+    print(f"Wrote {output_path}")
+   

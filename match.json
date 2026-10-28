@@ -1,5 +1,5 @@
 {
-  "seed": 42,
+  "seed": 99,
   "teams": [
     {
       "team_id": "team_alpha",
@@ -13,139 +13,1856 @@
     }
   ],
   "players": [
-    {"player_id": "Player_01", "name": "Player_01", "team_id": "team_alpha", "role": "RW", "pace": 92, "position": [82, 28]},
-    {"player_id": "Player_02", "name": "Player_02", "team_id": "team_alpha", "role": "RB", "pace": 74, "position": [18, 16]},
-    {"player_id": "Player_03", "name": "Player_03", "team_id": "team_alpha", "role": "CM", "pace": 82, "position": [52, 42]},
-    {"player_id": "Player_04", "name": "Player_04", "team_id": "team_alpha", "role": "CF", "pace": 83, "position": [68, 50]},
-    {"player_id": "Player_05", "name": "Player_05", "team_id": "team_alpha", "role": "LB", "pace": 78, "position": [22, 74]},
-    {"player_id": "Player_06", "name": "Player_06", "team_id": "team_alpha", "role": "DM", "pace": 80, "position": [42, 56]},
-    {"player_id": "Player_07", "name": "Player_07", "team_id": "team_alpha", "role": "AM", "pace": 84, "position": [62, 38]},
-    {"player_id": "Player_08", "name": "Player_08", "team_id": "team_alpha", "role": "LW", "pace": 88, "position": [76, 72]},
-    {"player_id": "Player_09", "name": "Player_09", "team_id": "team_alpha", "role": "ST", "pace": 81, "position": [70, 52]},
-    {"player_id": "Player_10", "name": "Player_10", "team_id": "team_alpha", "role": "CB", "pace": 72, "position": [26, 52]},
-    {"player_id": "Player_11", "name": "Player_11", "team_id": "team_beta", "role": "LB", "pace": 69, "position": [18, 70]},
-    {"player_id": "Player_12", "name": "Player_12", "team_id": "team_beta", "role": "RB", "pace": 63, "position": [18, 20]},
-    {"player_id": "Player_13", "name": "Player_13", "team_id": "team_beta", "role": "CM", "pace": 74, "position": [48, 58]},
-    {"player_id": "Player_14", "name": "Player_14", "team_id": "team_beta", "role": "CF", "pace": 80, "position": [68, 50]},
-    {"player_id": "Player_15", "name": "Player_15", "team_id": "team_beta", "role": "RW", "pace": 85, "position": [82, 30]},
-    {"player_id": "Player_16", "name": "Player_16", "team_id": "team_beta", "role": "DM", "pace": 78, "position": [42, 42]},
-    {"player_id": "Player_17", "name": "Player_17", "team_id": "team_beta", "role": "AM", "pace": 82, "position": [58, 38]},
-    {"player_id": "Player_18", "name": "Player_18", "team_id": "team_beta", "role": "LW", "pace": 87, "position": [78, 74]},
-    {"player_id": "Player_19", "name": "Player_19", "team_id": "team_beta", "role": "ST", "pace": 79, "position": [70, 50]},
-    {"player_id": "Player_20", "name": "Player_20", "team_id": "team_beta", "role": "CB", "pace": 72, "position": [26, 52]}
+    {
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "name": "Player_01",
+      "role": "RW",
+      "pace": 92
+    },
+    {
+      "player_id": "Player_02",
+      "team_id": "team_alpha",
+      "name": "Player_02",
+      "role": "RB",
+      "pace": 74
+    },
+    {
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "name": "Player_03",
+      "role": "CM",
+      "pace": 82
+    },
+    {
+      "player_id": "Player_04",
+      "team_id": "team_alpha",
+      "name": "Player_04",
+      "role": "CF",
+      "pace": 83
+    },
+    {
+      "player_id": "Player_05",
+      "team_id": "team_alpha",
+      "name": "Player_05",
+      "role": "LB",
+      "pace": 78
+    },
+    {
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "name": "Player_06",
+      "role": "DM",
+      "pace": 80
+    },
+    {
+      "player_id": "Player_07",
+      "team_id": "team_alpha",
+      "name": "Player_07",
+      "role": "AM",
+      "pace": 84
+    },
+    {
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "name": "Player_08",
+      "role": "LW",
+      "pace": 88
+    },
+    {
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "name": "Player_09",
+      "role": "ST",
+      "pace": 81
+    },
+    {
+      "player_id": "Player_10",
+      "team_id": "team_alpha",
+      "name": "Player_10",
+      "role": "CB",
+      "pace": 72
+    },
+    {
+      "player_id": "Player_11",
+      "team_id": "team_beta",
+      "name": "Player_11",
+      "role": "LB",
+      "pace": 69
+    },
+    {
+      "player_id": "Player_12",
+      "team_id": "team_beta",
+      "name": "Player_12",
+      "role": "RB",
+      "pace": 63
+    },
+    {
+      "player_id": "Player_13",
+      "team_id": "team_beta",
+      "name": "Player_13",
+      "role": "CM",
+      "pace": 74
+    },
+    {
+      "player_id": "Player_14",
+      "team_id": "team_beta",
+      "name": "Player_14",
+      "role": "CF",
+      "pace": 80
+    },
+    {
+      "player_id": "Player_15",
+      "team_id": "team_beta",
+      "name": "Player_15",
+      "role": "RW",
+      "pace": 85
+    },
+    {
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "name": "Player_16",
+      "role": "DM",
+      "pace": 78
+    },
+    {
+      "player_id": "Player_17",
+      "team_id": "team_beta",
+      "name": "Player_17",
+      "role": "AM",
+      "pace": 82
+    },
+    {
+      "player_id": "Player_18",
+      "team_id": "team_beta",
+      "name": "Player_18",
+      "role": "LW",
+      "pace": 87
+    },
+    {
+      "player_id": "Player_19",
+      "team_id": "team_beta",
+      "name": "Player_19",
+      "role": "ST",
+      "pace": 79
+    },
+    {
+      "player_id": "Player_20",
+      "team_id": "team_beta",
+      "name": "Player_20",
+      "role": "CB",
+      "pace": 72
+    }
   ],
   "events": [
-    {"timestamp": "0:12", "minute": 0, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "0:31", "minute": 0, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "0:43", "minute": 0, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "0:55", "minute": 0, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "3:12", "minute": 3, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "3:31", "minute": 3, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "3:43", "minute": 3, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "3:55", "minute": 3, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "6:12", "minute": 6, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "6:31", "minute": 6, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "6:43", "minute": 6, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "6:55", "minute": 6, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "9:12", "minute": 9, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "9:31", "minute": 9, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "9:43", "minute": 9, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "9:55", "minute": 9, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "12:12", "minute": 12, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "12:31", "minute": 12, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "12:43", "minute": 12, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "12:55", "minute": 12, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "15:12", "minute": 15, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "15:31", "minute": 15, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "15:43", "minute": 15, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "15:55", "minute": 15, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "18:12", "minute": 18, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "18:31", "minute": 18, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "18:43", "minute": 18, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "18:55", "minute": 18, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "21:12", "minute": 21, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "21:31", "minute": 21, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "21:43", "minute": 21, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "21:55", "minute": 21, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "24:12", "minute": 24, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "24:31", "minute": 24, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "24:43", "minute": 24, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "24:55", "minute": 24, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "27:12", "minute": 27, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "27:31", "minute": 27, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "27:43", "minute": 27, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "27:55", "minute": 27, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "30:12", "minute": 30, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "30:31", "minute": 30, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "30:43", "minute": 30, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "30:55", "minute": 30, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "33:12", "minute": 33, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "33:31", "minute": 33, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "33:43", "minute": 33, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "33:55", "minute": 33, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "36:12", "minute": 36, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "36:31", "minute": 36, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "36:43", "minute": 36, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "36:55", "minute": 36, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "39:12", "minute": 39, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "39:31", "minute": 39, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "39:43", "minute": 39, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "39:55", "minute": 39, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "42:12", "minute": 42, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "42:31", "minute": 42, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "42:43", "minute": 42, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "42:55", "minute": 42, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "45:12", "minute": 45, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "45:31", "minute": 45, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "45:43", "minute": 45, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "45:55", "minute": 45, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "48:12", "minute": 48, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "48:31", "minute": 48, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "48:43", "minute": 48, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "48:55", "minute": 48, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "51:12", "minute": 51, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "51:31", "minute": 51, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "51:43", "minute": 51, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "51:55", "minute": 51, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "54:12", "minute": 54, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "54:31", "minute": 54, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "54:43", "minute": 54, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "54:55", "minute": 54, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "57:12", "minute": 57, "type": "pressure", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [52.0, 52.0], "end_coordinates": [60.0, 37.0], "outcome": "won"},
-    {"timestamp": "57:31", "minute": 57, "type": "tackle", "player_id": "Player_16", "team_id": "team_beta", "start_coordinates": [50.0, 48.0], "end_coordinates": [45.0, 42.0], "outcome": "won"},
-    {"timestamp": "57:43", "minute": 57, "type": "possession_change", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [42.0, 52.0], "end_coordinates": [52.0, 46.0], "outcome": "won"},
-    {"timestamp": "57:55", "minute": 57, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [76.0, 28.0], "end_coordinates": [86.0, 30.0], "outcome": "complete"},
-    {"timestamp": "61:20", "minute": 61, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [82.0, 28.0], "end_coordinates": [88.0, 32.0], "outcome": "complete"},
-    {"timestamp": "61:32", "minute": 61, "type": "pressure", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [84.0, 26.0], "end_coordinates": [92.0, 32.0], "outcome": "won"},
-    {"timestamp": "61:48", "minute": 61, "type": "tackle", "player_id": "Player_12", "team_id": "team_beta", "start_coordinates": [18.0, 18.0], "end_coordinates": [22.0, 26.0], "outcome": "won"},
-    {"timestamp": "62:18", "minute": 62, "type": "pass", "player_id": "Player_03", "team_id": "team_alpha", "start_coordinates": [46.0, 42.0], "end_coordinates": [18.0, 62.0], "outcome": "complete"},
-    {"timestamp": "62:36", "minute": 62, "type": "pressure", "player_id": "Player_07", "team_id": "team_alpha", "start_coordinates": [62.0, 38.0], "end_coordinates": [30.0, 62.0], "outcome": "won"},
-    {"timestamp": "62:52", "minute": 62, "type": "pass", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [78.0, 68.0], "end_coordinates": [10.0, 70.0], "outcome": "complete"},
-    {"timestamp": "63:22", "minute": 63, "type": "pass", "player_id": "Player_09", "team_id": "team_alpha", "start_coordinates": [70.0, 52.0], "end_coordinates": [58.0, 48.0], "outcome": "complete"},
-    {"timestamp": "63:41", "minute": 63, "type": "pass", "player_id": "Player_10", "team_id": "team_alpha", "start_coordinates": [58.0, 48.0], "end_coordinates": [66.0, 54.0], "outcome": "complete"},
-    {"timestamp": "63:54", "minute": 63, "type": "pressure", "player_id": "Player_06", "team_id": "team_alpha", "start_coordinates": [48.0, 52.0], "end_coordinates": [68.0, 50.0], "outcome": "won"},
-    {"timestamp": "64:18", "minute": 64, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [82.0, 30.0], "end_coordinates": [88.0, 34.0], "outcome": "complete"},
-    {"timestamp": "64:39", "minute": 64, "type": "pressure", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [86.0, 30.0], "end_coordinates": [92.0, 38.0], "outcome": "won"},
-    {"timestamp": "64:50", "minute": 64, "type": "tackle", "player_id": "Player_12", "team_id": "team_beta", "start_coordinates": [20.0, 18.0], "end_coordinates": [24.0, 26.0], "outcome": "lost"},
-    {"timestamp": "65:14", "minute": 65, "type": "pass", "player_id": "Player_07", "team_id": "team_alpha", "start_coordinates": [56.0, 38.0], "end_coordinates": [20.0, 72.0], "outcome": "complete"},
-    {"timestamp": "65:36", "minute": 65, "type": "pressure", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [76.0, 72.0], "end_coordinates": [12.0, 70.0], "outcome": "won"},
-    {"timestamp": "65:48", "minute": 65, "type": "pass", "player_id": "Player_05", "team_id": "team_alpha", "start_coordinates": [18.0, 74.0], "end_coordinates": [12.0, 70.0], "outcome": "complete"},
-    {"timestamp": "70:45", "minute": 70, "type": "pass", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [22.0, 72.0], "end_coordinates": [12.0, 72.0], "outcome": "complete"},
-    {"timestamp": "73:45", "minute": 73, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [80.0, 30.0], "end_coordinates": [88.0, 34.0], "outcome": "complete"},
-    {"timestamp": "76:45", "minute": 76, "type": "pass", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [22.0, 72.0], "end_coordinates": [12.0, 72.0], "outcome": "complete"},
-    {"timestamp": "79:45", "minute": 79, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [80.0, 30.0], "end_coordinates": [88.0, 34.0], "outcome": "complete"},
-    {"timestamp": "82:45", "minute": 82, "type": "pass", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [22.0, 72.0], "end_coordinates": [12.0, 72.0], "outcome": "complete"},
-    {"timestamp": "85:45", "minute": 85, "type": "pass", "player_id": "Player_01", "team_id": "team_alpha", "start_coordinates": [80.0, 30.0], "end_coordinates": [88.0, 34.0], "outcome": "complete"},
-    {"timestamp": "88:45", "minute": 88, "type": "pass", "player_id": "Player_08", "team_id": "team_alpha", "start_coordinates": [22.0, 72.0], "end_coordinates": [12.0, 72.0], "outcome": "complete"}
+    {
+      "timestamp": "0:10",
+      "minute": 0,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "0:20",
+      "minute": 0,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "0:31",
+      "minute": 0,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "0:43",
+      "minute": 0,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "3:20",
+      "minute": 3,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "4:10",
+      "minute": 4,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "5:31",
+      "minute": 5,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "6:20",
+      "minute": 6,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "7:43",
+      "minute": 7,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "8:10",
+      "minute": 8,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "9:20",
+      "minute": 9,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "10:31",
+      "minute": 10,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "12:10",
+      "minute": 12,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "12:20",
+      "minute": 12,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "14:43",
+      "minute": 14,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "15:20",
+      "minute": 15,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "15:31",
+      "minute": 15,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "16:10",
+      "minute": 16,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "18:20",
+      "minute": 18,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "20:10",
+      "minute": 20,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "20:31",
+      "minute": 20,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "21:20",
+      "minute": 21,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "21:43",
+      "minute": 21,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "24:10",
+      "minute": 24,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "24:20",
+      "minute": 24,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "25:31",
+      "minute": 25,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "27:20",
+      "minute": 27,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "27:46",
+      "minute": 27,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "28:10",
+      "minute": 28,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "28:43",
+      "minute": 28,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "30:20",
+      "minute": 30,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "30:31",
+      "minute": 30,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "32:10",
+      "minute": 32,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "33:20",
+      "minute": 33,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "35:31",
+      "minute": 35,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "35:43",
+      "minute": 35,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "36:10",
+      "minute": 36,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "36:20",
+      "minute": 36,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "36:46",
+      "minute": 36,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "39:20",
+      "minute": 39,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "40:10",
+      "minute": 40,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "40:31",
+      "minute": 40,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "42:20",
+      "minute": 42,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "42:43",
+      "minute": 42,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "44:10",
+      "minute": 44,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "45:20",
+      "minute": 45,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "45:31",
+      "minute": 45,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "45:46",
+      "minute": 45,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "48:10",
+      "minute": 48,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "48:20",
+      "minute": 48,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "49:43",
+      "minute": 49,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "50:31",
+      "minute": 50,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "51:20",
+      "minute": 51,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "52:10",
+      "minute": 52,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "54:20",
+      "minute": 54,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "54:46",
+      "minute": 54,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "55:31",
+      "minute": 55,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "56:10",
+      "minute": 56,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "56:43",
+      "minute": 56,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "57:20",
+      "minute": 57,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        28.0
+      ],
+      "end_coordinates": [
+        86.0,
+        30.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "60:10",
+      "minute": 60,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "60:20",
+      "minute": 60,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "60:31",
+      "minute": 60,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "61:20",
+      "minute": 61,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        82.0,
+        28.0
+      ],
+      "end_coordinates": [
+        88.0,
+        32.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "61:32",
+      "minute": 61,
+      "type": "pressure",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        84.0,
+        26.0
+      ],
+      "end_coordinates": [
+        92.0,
+        32.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "61:48",
+      "minute": 61,
+      "type": "tackle",
+      "player_id": "Player_12",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        18.0,
+        18.0
+      ],
+      "end_coordinates": [
+        22.0,
+        26.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "62:18",
+      "minute": 62,
+      "type": "pass",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        46.0,
+        42.0
+      ],
+      "end_coordinates": [
+        18.0,
+        62.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "62:36",
+      "minute": 62,
+      "type": "pressure",
+      "player_id": "Player_07",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        62.0,
+        38.0
+      ],
+      "end_coordinates": [
+        30.0,
+        62.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "62:52",
+      "minute": 62,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        78.0,
+        68.0
+      ],
+      "end_coordinates": [
+        10.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "63:20",
+      "minute": 63,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "63:22",
+      "minute": 63,
+      "type": "pass",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        70.0,
+        52.0
+      ],
+      "end_coordinates": [
+        58.0,
+        48.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "63:41",
+      "minute": 63,
+      "type": "pass",
+      "player_id": "Player_10",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        58.0,
+        48.0
+      ],
+      "end_coordinates": [
+        66.0,
+        54.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "63:43",
+      "minute": 63,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "63:46",
+      "minute": 63,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "63:54",
+      "minute": 63,
+      "type": "pressure",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        48.0,
+        52.0
+      ],
+      "end_coordinates": [
+        68.0,
+        50.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "64:10",
+      "minute": 64,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "64:18",
+      "minute": 64,
+      "type": "pass",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        82.0,
+        30.0
+      ],
+      "end_coordinates": [
+        88.0,
+        34.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "64:39",
+      "minute": 64,
+      "type": "pressure",
+      "player_id": "Player_01",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        86.0,
+        30.0
+      ],
+      "end_coordinates": [
+        92.0,
+        38.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "64:50",
+      "minute": 64,
+      "type": "tackle",
+      "player_id": "Player_12",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        20.0,
+        18.0
+      ],
+      "end_coordinates": [
+        24.0,
+        26.0
+      ],
+      "outcome": "lost"
+    },
+    {
+      "timestamp": "65:14",
+      "minute": 65,
+      "type": "pass",
+      "player_id": "Player_07",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        56.0,
+        38.0
+      ],
+      "end_coordinates": [
+        20.0,
+        72.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "65:31",
+      "minute": 65,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "65:36",
+      "minute": 65,
+      "type": "pressure",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        76.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "65:48",
+      "minute": 65,
+      "type": "pass",
+      "player_id": "Player_05",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        18.0,
+        74.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "66:20",
+      "minute": 66,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "68:10",
+      "minute": 68,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "69:20",
+      "minute": 69,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "70:31",
+      "minute": 70,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "70:43",
+      "minute": 70,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "72:10",
+      "minute": 72,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "72:20",
+      "minute": 72,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "72:46",
+      "minute": 72,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "75:20",
+      "minute": 75,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "75:31",
+      "minute": 75,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "76:10",
+      "minute": 76,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "77:43",
+      "minute": 77,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "78:20",
+      "minute": 78,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "80:10",
+      "minute": 80,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "80:31",
+      "minute": 80,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "81:20",
+      "minute": 81,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "81:46",
+      "minute": 81,
+      "type": "shot",
+      "player_id": "Player_09",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        72.0,
+        54.0
+      ],
+      "end_coordinates": [
+        90.0,
+        52.0
+      ],
+      "outcome": "blocked"
+    },
+    {
+      "timestamp": "84:10",
+      "minute": 84,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "84:20",
+      "minute": 84,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "84:43",
+      "minute": 84,
+      "type": "possession_change",
+      "player_id": "Player_06",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        42.0,
+        52.0
+      ],
+      "end_coordinates": [
+        52.0,
+        46.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "85:31",
+      "minute": 85,
+      "type": "tackle",
+      "player_id": "Player_16",
+      "team_id": "team_beta",
+      "start_coordinates": [
+        50.0,
+        48.0
+      ],
+      "end_coordinates": [
+        45.0,
+        42.0
+      ],
+      "outcome": "won"
+    },
+    {
+      "timestamp": "87:20",
+      "minute": 87,
+      "type": "pass",
+      "player_id": "Player_08",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        22.0,
+        72.0
+      ],
+      "end_coordinates": [
+        12.0,
+        70.0
+      ],
+      "outcome": "complete"
+    },
+    {
+      "timestamp": "88:10",
+      "minute": 88,
+      "type": "pressure",
+      "player_id": "Player_03",
+      "team_id": "team_alpha",
+      "start_coordinates": [
+        52.0,
+        52.0
+      ],
+      "end_coordinates": [
+        60.0,
+        37.0
+      ],
+      "outcome": "won"
+    }
   ],
   "pattern_windows": [
     {
       "minute": 61,
       "pattern": "pace_mismatch",
       "patternLabel": "Pace mismatch",
-      "description": "The right flank is a sprint race and the fast winger repeatedly attacks the slower full-back.",
       "team_id": "team_alpha",
-      "zones": ["Z1", "Z2", "Z4"],
+      "zones": [
+        "Z1",
+        "Z2",
+        "Z4"
+      ],
       "xg": 0.34,
       "momentum": 68,
       "narrativeKey": 0
@@ -154,9 +1871,12 @@
       "minute": 62,
       "pattern": "zone_shift",
       "patternLabel": "Zone shift",
-      "description": "The attacking focus pivots from the right to the left side as the shape changes.",
       "team_id": "team_alpha",
-      "zones": ["Z7", "Z8", "Z9"],
+      "zones": [
+        "Z7",
+        "Z8",
+        "Z9"
+      ],
       "xg": 0.28,
       "momentum": 76,
       "narrativeKey": 1
@@ -165,9 +1885,12 @@
       "minute": 63,
       "pattern": "one_two",
       "patternLabel": "One-two",
-      "description": "A concise one-two opens a lane past the line and creates a dangerous box entry.",
       "team_id": "team_alpha",
-      "zones": ["Z5", "Z6", "Z8"],
+      "zones": [
+        "Z5",
+        "Z6",
+        "Z8"
+      ],
       "xg": 0.41,
       "momentum": 84,
       "narrativeKey": 2
@@ -176,9 +1899,12 @@
       "minute": 64,
       "pattern": "pace_mismatch",
       "patternLabel": "Pace mismatch",
-      "description": "The same right-side mismatch is repeated and the faster winger gets behind again.",
       "team_id": "team_alpha",
-      "zones": ["Z2", "Z3", "Z4"],
+      "zones": [
+        "Z2",
+        "Z3",
+        "Z4"
+      ],
       "xg": 0.39,
       "momentum": 88,
       "narrativeKey": 0
@@ -187,9 +1913,12 @@
       "minute": 65,
       "pattern": "zone_shift",
       "patternLabel": "Zone shift",
-      "description": "The team shifts the attacking weight back to the left and attacks the inside channel.",
       "team_id": "team_alpha",
-      "zones": ["Z7", "Z8", "Z9"],
+      "zones": [
+        "Z7",
+        "Z8",
+        "Z9"
+      ],
       "xg": 0.36,
       "momentum": 79,
       "narrativeKey": 1
